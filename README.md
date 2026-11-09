@@ -1,514 +1,260 @@
 # GreenThumb Community Garden
 
-**WEDE5020 Portfolio of Evidence — Part 3 (Final Website)**
+WEDE5020 Portfolio of Evidence, Part 3 (final website).
 
-| | |
-|---|---|
-| **Student name** | Jovan David |
-| **Student number** | ST10510821 |
-| **Module** | WEDE5020 — Web Development Introduction |
-| **Assessment** | Part 3 of 3 (100 marks) |
-| **Live website** | https://greenthumbgarden.netlify.app/ |
-| **GitHub repository** | https://github.com/EMKNPM/wede5020-wede-poe-jovan-david |
-| **Date submitted** | 9 November 2026 |
-
-> **Note on the repository name:** the GitHub repository was created in Part 1 under the name `wede5020-wede-poe-jovan-david` and still carries that name. All Part 3 work is committed to the same repository so the marking team can see the full history from Part 1 to Part 3.
-
----
-
-## Contents
-
-1. [Project overview](#a-project-overview)
-2. [Site map and pages](#b-site-map-and-pages)
-3. [Running the site locally](#c-running-the-site-locally)
-4. [Design decisions](#d-design-decisions)
-5. [Part 2 feedback and fixes](#e-part-2-feedback-and-fixes)
-6. [Part 3 features](#f-part-3-features)
-7. [Accessibility](#g-accessibility)
-8. [Search engine optimisation](#h-search-engine-optimisation)
-9. [Forms](#i-forms)
-10. [Changelog](#j-changelog)
-11. [Git commit history](#k-git-commit-history)
-12. [Deployment](#l-deployment)
-13. [Pre-deploy and testing checklist](#m-pre-deploy-and-testing-checklist)
-14. [References](#n-references)
-15. [Image credits](#o-image-credits)
-16. [AI and tool declaration](#p-ai-and-tool-declaration)
-17. [Self-audit against the Part 3 brief](#q-self-audit-against-the-part-3-brief)
-
----
+- Student: Jovan David
+- Student number: ST10510821
+- Module: WEDE5020 Web Development Introduction
+- Repository: https://github.com/EMKNPM/wede5020-wede-poe-jovan-david
+- Live site: https://greenthumbgarden.netlify.app/
 
 ## a. Project overview
 
-GreenThumb Community Garden is a fictional non-profit food garden in Durban North, Durban, KwaZulu-Natal. The organisation rents seasonal vegetable plots, presents affordable gardening workshops, hosts school visits and runs a monthly harvest market. The website exists to help three audiences:
+GreenThumb Community Garden is a made-up non-profit food garden in Durban North, Durban. It rents seasonal vegetable plots, runs gardening workshops, hosts school visits and holds a monthly harvest market. The site is written for three groups of people: neighbours who want a plot, schools and community groups who want to book a visit, and volunteers, donors and sponsors.
 
-1. **Neighbours** who want to grow their own food and need to know how to get a plot.
-2. **Schools and community groups** who want to book a facilitated garden visit.
-3. **Volunteers, donors and sponsors** who want to support the garden.
+The project was built in three parts. Part 1 was the structure and content: five HTML pages. Part 2 was the styling: one shared stylesheet, Grid and Flexbox layouts and three breakpoints. Part 3 adds the JavaScript, the OpenLayers map, the photo gallery, the JSON programme list, both forms, the SEO work and the deployment.
 
-The site was built in three parts:
+Parts 1 and 2 were extended, not replaced. The green (#2E7D32), cream (#FFF8E1) and brown (#8D6E63) colours, the Segoe UI font stack and the 992px, 768px and 480px breakpoints are all still the same.
 
-| Part | Focus | Result |
-|---|---|---|
-| Part 1 | Structure and content | Five semantic HTML pages with the original green and cream design |
-| Part 2 | Styling and responsiveness | One shared stylesheet, CSS Grid/Flexbox layouts and three responsive breakpoints |
-| Part 3 | Interactivity, data, SEO and deployment | JavaScript features, OpenLayers map, lightbox gallery, JSON-driven programme list, validated forms, full SEO and a live deployment |
-
-The Part 1 and Part 2 design is **kept and extended**, not replaced. The same green (`#2E7D32`), cream (`#FFF8E1`) and brown (`#8D6E63`) palette, the same Segoe UI font stack and the same three breakpoints (992px, 768px, 480px) are still used.
-
----
-
-## b. Site map and pages
+## b. Pages and files
 
 ```
-index.html          Home page: hero, impact stats, programmes, volunteer feature,
-                    FAQ accordion and the garden tour modal
-about.html          History, mission, vision, who we serve, how we work and milestones
-services.html       Dynamic programme list with live search, category filter and sorting
-gallery.html        Nine-photo gallery with a keyboard accessible lightbox
-find-us.html        OpenLayers map with four markers, popups and directions links
-enquiry.html        Programme enquiry form with validation, quote and confirmation
-contact.html        Contact details plus validated form with a mailto fallback
-404.html            Friendly "page not found" page used by Netlify
+index.html            Home page: hero, impact stats, programmes, volunteer section,
+                      FAQ accordion and garden tour modal
+about.html            History, mission, vision, who the garden serves, milestones
+services.html         Programme list with search, category filter and sorting
+gallery.html          Nine photos with a keyboard accessible lightbox
+find-us.html          OpenLayers map with four markers and directions links
+enquiry.html          Programme enquiry form with validation and a quote
+contact.html          Contact details and a form with a mailto fallback
+404.html              Page not found page, used by Netlify
 ```
 
-Supporting files:
-
 ```
-css/styles.css      One stylesheet for the whole site (Part 2 rules + Part 3 components)
-js/main.js          Shared: mobile menu, accordion, modal, scroll reveal, footer year
-js/services.js      Fetches data/services.json, then searches, filters and sorts it
-js/gallery.js       Lightbox: open, close, previous, next, keyboard and swipe
-js/map.js           OpenLayers map, markers, popups, coordinate readout, zoom controls
-js/enquiry.js       Enquiry validation, character counter, simulated POST, quotation
-js/contact.js       Contact validation, mailto builder and confirmation panel
-data/services.json  Ten programmes with prices, dates and availability
-images/             Nine optimised photographs with descriptive file names
-screenshots/        Part 2 responsive evidence (1366px, 768px, 375px)
-robots.txt          Crawler rules and sitemap location
-sitemap.xml         All seven public pages with last-modified dates
+css/styles.css        One stylesheet for the whole site
+js/main.js            Mobile menu, accordion, modal, scroll reveal, footer year
+js/services.js        Loads data/services.json, then searches, filters and sorts it
+js/gallery.js         Lightbox: open, close, previous, next, keys and swipe
+js/map.js             OpenLayers map, markers, popups, coordinates, zoom buttons
+js/enquiry.js         Enquiry validation, character counter, submission, quote
+js/contact.js         Contact validation and the mailto message builder
+data/services.json    Ten programmes with prices, dates and availability
+images/               Nine photos with descriptive file names
+screenshots/          Part 2 responsive screenshots (1366px, 768px, 375px)
+robots.txt            Crawler rules and the sitemap location
+sitemap.xml           The seven public pages with last modified dates
 ```
 
-Every page links to every other page through the same navigation, and the footer repeats the name, address and phone number (NAP) consistently on all pages.
-
----
+Every page uses the same navigation and the same footer, so the name, address and phone number stay the same across the site.
 
 ## c. Running the site locally
 
-The **programme list** (`data/services.json`) is loaded with `fetch()`. Browsers block `fetch()` when a page is opened directly from disk (`file://`), so the services page needs a small local web server:
+The programme list is loaded from `data/services.json` with `fetch()`. Browsers block `fetch()` on pages opened straight from disk, so the services page needs a small local server. Any of these will do.
 
-**Option 1 — VS Code Live Server (easiest)**
-1. Open the project folder in Visual Studio Code.
-2. Install the *Live Server* extension.
-3. Right-click `index.html` → **Open with Live Server**.
+Live Server in VS Code: install the extension, right click `index.html`, then choose "Open with Live Server".
 
-**Option 2 — Node.js**
+With Node.js:
+
 ```bash
 npx serve .
-# then open the address it prints, usually http://localhost:3000
 ```
 
-**Option 3 — Python**
+With Python:
+
 ```bash
 python -m http.server 8000
-# then open http://localhost:8000
 ```
 
-The map needs an internet connection because OpenStreetMap tiles are downloaded from the internet. Everything else works offline.
-
----
+The map needs an internet connection because the map tiles come from OpenStreetMap. The rest of the site works without one.
 
 ## d. Design decisions
 
-| Element | Decision | Reason |
-|---|---|---|
-| **Colour palette** | Green `#2E7D32` (growth), dark green `#1B5E20` (headings), brown `#8D6E63` (earth and call-to-action), cream `#FFF8E1` (background), charcoal `#333333` (body text) | Kept from Part 1. Green and brown communicate food and soil without looking corporate. |
-| **Typography** | `"Segoe UI", Arial, Helvetica, sans-serif` | A system font stack: nothing extra to download, so the page renders instantly and text stays readable on every device. |
-| **Layout** | CSS Grid for page sections and card grids, Flexbox for the header, buttons and toolbars | Grid handles two-dimensional layouts; Flexbox handles single rows. Both keep the HTML simple. |
-| **Spacing** | 8px-based scale, 64px section padding on desktop and 48px on mobile | Consistent rhythm and comfortable white space. |
-| **Breakpoints** | 992px, 768px, 480px | Carried over from Part 2 so the responsive evidence in `screenshots/` still applies. |
-| **Cards** | White cards, 8px radius, soft shadow, lift on hover | Separates content from the cream background and gives clear click targets. |
-| **Motion** | 0.2–0.3s transitions, scroll reveal, `prefers-reduced-motion` respected | Motion guides attention but never blocks content. |
-| **Icons** | Text and CSS shapes only (the `GT` monogram, the plus/minus accordion icon) | No icon font or image requests, so nothing can fail to load. |
-| **Currency and location** | South African rand, Durban addresses, `en-ZA` language tag | The module is South African and the phone validation is built for South African numbers. |
+The colours are green #2E7D32 for growth, dark green #1B5E20 for headings, brown #8D6E63 for buttons and call to action, cream #FFF8E1 for the page background and #333333 for body text. The green and brown were kept from Part 1 because they read as food and soil without looking corporate.
 
----
+The font stack is `"Segoe UI", Arial, Helvetica, sans-serif`. It is a system font, so nothing has to download and the text shows immediately.
+
+Layout uses CSS Grid for page sections and card grids, and Flexbox for the header, buttons and toolbars. Spacing follows an 8px scale, with 64px between sections on desktop and 48px on mobile.
+
+The breakpoints are 992px, 768px and 480px, carried over from Part 2 so the screenshots in `screenshots/` still match the current code.
+
+Cards are white with an 8px radius, a soft shadow and a small lift on hover. Transitions run at 0.2 to 0.3 seconds. Anything that moves is switched off when the visitor has `prefers-reduced-motion` set.
+
+There are no icon fonts or icon images. The only icons are text and CSS shapes, such as the GT monogram and the plus and minus on the accordion, so there is nothing extra that can fail to load.
+
+Prices are in rand, the addresses are in Durban and the phone validation is written for South African mobile numbers.
 
 ## e. Part 2 feedback and fixes
 
-The marked Part 2 feedback sheet was not returned before this submission, so each issue that could be identified from a review of the Part 2 files was corrected. The table records what was changed and where.
+The marked Part 2 feedback sheet had not come back before this submission, so I went through the Part 2 files myself and fixed what I found.
 
-| # | Issue found in Parts 1–2 | Fix in Part 3 | File |
-|---|---|---|---|
-| 1 | Spelling errors in comments and copy ("tecniques", "enviorment", "sectoin") | All corrected | `about.html`, `css/styles.css` |
-| 2 | `about.html` called the organisation the "Community Garden Network" | Corrected to "GreenThumb Community Garden" | `about.html` |
-| 3 | Two different addresses and phone formats across pages | One NAP (name, address, phone) block repeated in every footer and in the structured data | all pages |
-| 4 | Currency mixed dollars and rand | Everything is now South African rand | all pages, `data/services.json` |
-| 5 | `green-thumb-garden.html` was an orphan duplicate of the home page | Deleted; duplicate content harms SEO | — |
-| 6 | Navigation had no mobile behaviour and no current-page marker | Sticky header, accessible menu button, `aria-current="page"` | all pages, `js/main.js` |
-| 7 | No page had meta description, keywords, canonical or social sharing tags | Added to every page | all pages |
-| 8 | Images used single-candidate `srcset` attributes (no benefit) | Replaced with correct `width`/`height` attributes and `loading="lazy"` | `index.html`, `gallery.html` |
-| 9 | Footer used `<h4>` headings without a heading level above them | Footer headings are now `<h2>` inside labelled sections | all pages |
-| 10 | Form had no labels, validation or feedback | Rebuilt with fieldsets, labels, inline errors, an error summary and a confirmation | `enquiry.html`, `contact.html` |
-| 11 | `references.md` repeated the README reference list | Consolidated into the single reference list in this README | — |
-| 12 | No robots.txt, sitemap or structured data | All three added | `robots.txt`, `sitemap.xml`, all pages |
-| 13 | No security policy; CDN resources loaded without integrity checks | CSP meta tag on every page and SRI hashes on the OpenLayers files | all pages |
-| 14 | Old images had uninformative file names (`garden-1.jpg`) | Renamed to describe the content and re-compressed | `images/` |
-
----
+1. Spelling mistakes in the copy and the comments ("tecniques", "enviorment", "sectoin") were corrected.
+2. `about.html` called the organisation the "Community Garden Network". It now says GreenThumb Community Garden.
+3. Pages used different addresses and phone number formats. Every footer now uses the same name, address and phone number, and the structured data matches.
+4. Prices mixed dollars and rand. Everything is in rand now, including `data/services.json`.
+5. `green-thumb-garden.html` was a copy of the home page. It was deleted because duplicate pages hurt search results.
+6. The navigation had no mobile behaviour and no current page marker. It now has a sticky header, a menu button with `aria-expanded`, and `aria-current="page"`.
+7. Pages had no meta description, keywords, canonical link or social tags. All of them are on every page now.
+8. `srcset` was used with a single image, which does nothing. It was replaced with `width`, `height` and `loading="lazy"`.
+9. Footer headings were `<h4>` with no `<h3>` above them. They are now `<h2>` inside labelled sections.
+10. The form had no labels, no validation and no feedback. Both forms were rebuilt with fieldsets, labels, inline errors and a confirmation.
+11. `references.md` repeated the reference list in the README. It was merged into this file and removed.
+12. There was no `robots.txt`, no sitemap and no structured data. All three were added.
+13. There was no security policy and the CDN files had no integrity checks. Every page has a CSP meta tag and the OpenLayers files have SRI hashes.
+14. Image file names such as `garden-1.jpg` said nothing about the picture. They were renamed and compressed.
 
 ## f. Part 3 features
 
-### 1. Interactive elements
+### Accordion and modal (index.html, js/main.js) [R10][R11]
 
-**Accordion (FAQ)** — `index.html` + `js/main.js` [R10]
-- Five questions, each with a real `<button>` inside a heading.
-- `aria-expanded` and `aria-controls` are updated on every click and `aria-hidden` is applied to the closed panel.
-- Only one panel opens at a time, and the panel animates open using an animated CSS Grid row, so no height has to be hard-coded.
-- The plus icon rotates and becomes a minus when the panel is open.
+The FAQ has five questions. Each one is a real `<button>` inside a heading, with `aria-expanded` and `aria-controls` updated on every click. Only one panel is open at a time, and the panel animates open with an animated CSS Grid row, so no height is hard coded. The plus sign turns into a minus while the panel is open.
 
-**Modal dialog (garden tour)** — `index.html` + `js/main.js` [R11]
-- Opened by the "Book a free garden tour" button, which is a real `<button>` rather than a link.
-- `role="dialog"`, `aria-modal="true"` and `aria-labelledby` point at the modal heading.
-- Escape closes it, a click on the dark backdrop closes it, and Tab and Shift+Tab are trapped inside the dialog.
-- Focus moves to the first control when it opens and returns to the trigger button when it closes, and the page behind it cannot scroll.
-- Every transition (modal fade, accordion, gallery zoom, card lift) uses CSS transitions.
+The garden tour modal opens from the "Book a free garden tour" button. It uses `role="dialog"`, `aria-modal="true"` and `aria-labelledby`. Escape closes it, clicking the backdrop closes it, and Tab and Shift+Tab stay inside it. Focus moves to the first control when it opens and back to the button when it closes, and the page behind it does not scroll.
 
-**Scroll reveal** — `js/main.js` [R21]
-- `IntersectionObserver` adds `.is-visible` when a section enters the viewport, so content fades and rises into place.
-- If the API is unavailable the sections are shown immediately, and `prefers-reduced-motion` disables the animation.
+Sections also fade in as they scroll into view, using `IntersectionObserver`. If the browser does not support it, the sections are simply visible, and the animation is skipped when the visitor has reduced motion switched on.
 
-### 2. OpenLayers map — `find-us.html` + `js/map.js` [R6][R7][R8]
+### Map (find-us.html, js/map.js) [R6][R7][R8][R20]
 
-- OpenLayers 10.6.1 loaded from jsDelivr with an SRI hash [R20].
-- OpenStreetMap base layer (no API key, no account, free to use).
-- **Four markers**: main garden, Berea workshop hub, Chatsworth youth plot and the Umhlanga harvest market.
-- Clicking a marker opens a popup with the name, address, description, a **"Get directions"** link to Google Maps and a link to the matching page.
-- Clicking empty map space **prints the latitude and longitude** of the click in a live region.
-- **Zoom in**, **zoom out** and **reset view** buttons; reset uses `view.fit()` to frame all four markers.
-- The map is responsive (480px → 340px height on small screens) and calls `updateSize()` on window resize.
-- A **location list** under the map lets keyboard and screen reader users reach the same information without clicking a canvas marker.
+OpenLayers 10.6.1 is loaded from jsDelivr with an SRI hash, over an OpenStreetMap base layer. There are four markers: the main garden, the Berea workshop hub, the Chatsworth youth plot and the Umhlanga harvest market.
 
-### 3. Gallery and lightbox — `gallery.html` + `js/gallery.js` [R9][R12]
+Clicking a marker opens a popup with the name, address, a short description and a "Get directions" link to Google Maps. Clicking empty map space prints the latitude and longitude into a live region. Three buttons zoom in, zoom out and reset the view, and reset uses `view.fit()` so all four markers are framed.
 
-- Nine photos in a responsive grid that collapses from three columns to one.
-- Each photo is a `<button>`, so it is reachable by keyboard and announced as a button.
-- The lightbox shows a large image, a caption and a "Photo 3 of 9" counter.
-- **Previous**, **next** and **close** buttons; **Left/Right arrow keys**; **Escape to close**; **click outside to close**; **swipe** on touch screens.
-- Focus is trapped in the lightbox while it is open and returns to the photo that opened it.
-- All images have descriptive alt text, descriptive file names, explicit `width`/`height` to prevent layout shift, and `loading="lazy"` for everything below the fold [R18].
+The map is responsive, going from 480px to 340px tall on small screens, and it calls `updateSize()` when the window is resized. The location list under the map gives the same information to people who cannot use the canvas.
 
-### 4. JSON-driven content — `data/services.json` + `js/services.js` [R1][R2][R24]
+### Gallery and lightbox (gallery.html, js/gallery.js) [R9][R12]
 
-- Ten programmes are stored in a JSON file with an id, name, category, price, unit, duration, next date, availability, summary and image.
-- The page **loads the file with `fetch()` inside an `async` function**.
-- **Live search**: results filter as the visitor types; the search checks the name, category, summary and availability.
-- **Category filter**: chips are generated from the categories in the JSON (All, Workshops, Plots, Youth, Volunteering, Sponsorship).
-- **Sorting**: name A–Z, price low to high, price high to low, or next date.
-- **No-results state**: explains what was searched, gives advice and offers a "Clear filters" button.
-- **Loading state**: a pulsing dot and "Loading programmes…" message.
-- **Error state**: if the JSON cannot be loaded the visitor sees a friendly message with a "Try again" button instead of an empty page.
-- A live region announces "Showing 4 of 10 programmes" for screen reader users.
-- Cards are built with `createElement` and `textContent` only — never `innerHTML` [R19].
+Nine photos sit in a grid that goes from three columns to one. Each photo is a `<button>`, so it can be reached with the keyboard. The lightbox shows the large image, a caption and a counter such as "Photo 3 of 9". It has previous, next and close buttons, works with the left and right arrow keys, closes with Escape or a click outside, and can be swiped on a touch screen. Focus stays inside the lightbox and goes back to the photo that opened it.
 
-### 5. Search engine optimisation
+Every image has alt text, a descriptive file name, `width` and `height` to stop the layout jumping, and `loading="lazy"` below the fold [R18].
 
-| Requirement | Where it is done |
-|---|---|
-| Unique title under 60 characters | Every page, `<title>` |
-| Meta description of 150–160 characters | Every page |
-| 5–8 keywords | Every page, `<meta name="keywords">` |
-| One `<h1>` per page | Every page |
-| Viewport meta | Every page |
-| `lang` attribute | `<html lang="en-ZA">` |
-| Canonical URL | Every page |
-| Open Graph + Twitter Card | Every page |
-| Descriptive alt text | All nine gallery images and all content images |
-| Clean, lowercase, hyphenated URLs | `find-us.html`, `gallery.html`, `enquiry.html` |
-| NAP consistency | Footer on every page and in the structured data |
-| `LocalBusiness` JSON-LD | Every page [R16][R17] |
-| `robots.txt` | Project root [R15] |
-| `sitemap.xml` | Project root [R14] |
-| Content Security Policy | Meta tag on every page [R19] |
-| `rel="noopener noreferrer"` | Every external link that opens a new tab |
-| SRI hashes | The two OpenLayers CDN files [R20] |
-| No `innerHTML` for user or data content | All JavaScript |
+### Programme list (data/services.json, js/services.js) [R1][R2][R24][R25]
 
-**Off-page SEO plan** (documented so the strategy is clear even though a student cannot run a full campaign):
+Ten programmes are stored in the JSON file. Each one has an id, name, category, price, unit, duration, next date, availability, summary and image. The page loads the file with `fetch()` inside an `async` function.
 
-1. **Google Business Profile** — claim the Durban North address, choose "Community garden" as the category, add the same NAP, opening hours and photos used on the site, and post the monthly market date.
-2. **Local citations** — list the garden in Durban community directories, the municipality's community garden register, and volunteer portals such as forgood, always with exactly the same name, address and phone number.
-3. **Backlinks from partners** — ask every school that visits, the Berea hall, the Chatsworth centre and the Umhlanga market to link to `find-us.html` and `services.html` from their own websites.
-4. **Social profiles** — use the same handle and profile photo on Facebook and Instagram, and link them from the footer (`sameAs` in the structured data), then share each workshop page.
-5. **Local content** — publish a short seasonal planting post every month, because "what to plant in Durban in November" style queries are what local gardeners actually search.
-6. **Reviews** — ask workshop attendees and plot holders to leave Google reviews mentioning "Durban" and "vegetable garden".
-7. **Search Console** — submit `sitemap.xml`, monitor the Pages report, and fix any crawl errors.
+Search filters as the visitor types and looks at the name, category, summary and availability. The category chips are built from the categories in the file. Sorting offers name A to Z, price low to high, price high to low, or next date. There is a loading message, a no-results message that repeats the search back and offers a "Clear filters" button, and an error message with a "Try again" button if the file cannot be loaded.
 
-### 6. Forms
+The count is announced in a live region. Cards are built with `createElement` and `textContent`, never `innerHTML` [R19].
 
-**Enquiry form** (`enquiry.html` + `js/enquiry.js`)
-- Controls: first name, surname, email, mobile, enquiry-type radio group, programme select, quantity, preferred date, message with a character counter, three optional checkboxes and a consent checkbox — all inside `<fieldset>`/`<legend>` groups with `<label>` elements.
-- Validation with **regular expressions**: names `/^[A-Za-z][A-Za-z'\-\s]{1,49}$/`, email `/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/`, South African mobile `/^(\+27|0)[6-8][0-9]{8}$/`, quantity 1–50, date not in the past, message 10–500 characters [R3][R4][R5].
-- Invalid fields get `aria-invalid="true"`, a red border **and** a text error message, and an error summary at the top of the form receives focus.
-- On submit the button is disabled, the text changes to "Sending your enquiry…", and the form shows a loading message.
-- **The submission uses `async`/`await`.** Because there is no server in this portfolio, `sendEnquiry()` resolves a local Promise after 1.2 seconds, exactly like a JSON API would. The `ENDPOINT` constant at the top of the file documents how to switch to a real service: set the URL and the existing `fetch()` block runs instead.
-- The reply is **personalised**: it confirms the visitor's name, programme, quantity, requested date, duration, next available start, an estimated total (price × quantity) and the reply time for that programme, plus a generated reference such as `GT-261109-4821`.
-- The form has a real `action` (`https://formsubmit.co/info@greenthumbgarden.org`) and `method="post"` as a no-JavaScript fallback.
-- Arriving from a service card (`enquiry.html?service=plot-seasonal`) preselects that programme using `URLSearchParams` [R22].
+### Search engine optimisation [R13] to [R17]
 
-**Contact form** (`contact.html` + `js/contact.js`)
-- Controls: full name, email, optional mobile, subject select and message.
-- The same validation rules are applied, including the optional-phone rule (validated only when something is typed).
-- `const RECIPIENT_EMAIL = "info@greenthumbgarden.org"` is defined **once** at the top of `js/contact.js`.
-- On submit the message is assembled and encoded with **`encodeURIComponent`**, producing a `mailto:` link with a subject and body [R23].
-- A confirmation panel shows what is ready to send, an **"Open in email app"** button and a **"Copy email address"** fallback for devices with no mail app.
-- The form also has a real `action` and `method="post"` for the no-JavaScript case.
+Every page has a title under 60 characters, a meta description of 150 to 160 characters, 6 keywords, one `<h1>`, the viewport tag, `lang="en-ZA"`, a canonical link, Open Graph and Twitter Card tags, and `LocalBusiness` JSON-LD with the name, address, phone number and coordinates. The site root has `robots.txt` and `sitemap.xml`, and every page carries a CSP and uses `rel="noopener noreferrer"` on external links.
 
----
+The off-page plan, written up for the assignment, is: claim the Google Business Profile with the same details as the site, list the garden in Durban community directories and volunteer portals, ask the schools and halls that host the workshops to link back, use the same handle on Facebook and Instagram and link them in the footer, post something short about what to plant each month, ask attendees for Google reviews that mention Durban, and submit the sitemap in Search Console.
+
+The canonical, `og:url` and `og:image` values all use `https://greenthumbgarden.netlify.app/`. If the site ends up at a different address, that string needs replacing in all the HTML files, `robots.txt` and `sitemap.xml`.
+
+### Forms
+
+The enquiry form has first name, surname, email, mobile, enquiry type, programme, quantity, preferred date, a message with a character counter, three optional checkboxes and a consent checkbox. Everything is inside fieldsets with labels. Validation uses regular expressions: names `/^[A-Za-z][A-Za-z'\- \s]{1,49}$/`, email `/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/`, South African mobile `/^(\+27|0)[6-8][0-9]{8}$/`, quantity from 1 to 50, a date that is not in the past, and a message of 10 to 500 characters [R3][R4][R5].
+
+Invalid fields get `aria-invalid="true"`, a red border and a text message, and the error summary at the top takes focus. On submit the button is disabled and changes to "Sending your enquiry…".
+
+The submission uses `async` and `await`. There is no server in this portfolio, so `sendEnquiry()` resolves a local Promise after 1.2 seconds to act like a JSON API. The `ENDPOINT` constant at the top of `js/enquiry.js` shows where a real URL would go, and the existing `fetch()` block then runs instead.
+
+The reply repeats the visitor's name, the programme, quantity, requested date, duration, next available start, an estimated total and the reply time, plus a reference number such as `GT-261109-4821`. The form also has a real `action` and `method="post"` for the case where JavaScript is off. Opening `enquiry.html?service=plot-seasonal` preselects that programme using `URLSearchParams` [R22].
+
+The contact form has name, email, optional mobile, subject and message, with the same rules, and the phone is only checked when something is typed. `RECIPIENT_EMAIL` is set once at the top of `js/contact.js`. On submit the subject and body are put together and encoded with `encodeURIComponent` into a `mailto:` link [R23], and a confirmation panel offers an "Open in email app" button and a "Copy email address" fallback.
 
 ## g. Accessibility
 
-The site targets WCAG 2.2 level AA [R12]:
+The site is built for WCAG 2.2 AA [R12].
 
-- **Skip link** on every page, visible on keyboard focus.
-- **Landmarks**: `header`, `nav` with `aria-label`, `main`, `footer`, and `aria-current="page"` on the active menu item.
-- **Keyboard**: every interactive element is a real button, link or form control; the accordion, modal and lightbox all work without a mouse.
-- **Escape** closes the modal and the lightbox; **arrow keys** move through the gallery.
-- **Focus management**: focus moves into dialogs and returns to the trigger when they close; Tab is trapped in both dialogs.
-- **Visible focus**: a 3px dark-green outline on all interactive elements.
-- **Errors**: announced with `role="alert"`, described by `aria-describedby`, and repeated in a summary that receives focus; colour is never the only signal.
-- **Live regions**: search results, price preview, coordinates and form status are announced politely.
-- **Images**: descriptive alt text everywhere; decorative icons use `aria-hidden="true"`.
-- **Motion**: `prefers-reduced-motion` removes animation.
-- **Map alternative**: the location list under the map provides the same information without the canvas.
-- **Contrast**: dark green on cream and white on dark green both pass AA.
+- Skip link on every page, visible when it has focus.
+- `header`, `nav` with a label, `main` and `footer` landmarks, and `aria-current="page"` on the active menu item.
+- Every control is a real button, link or form field, so the accordion, modal, lightbox and forms all work without a mouse.
+- Escape closes the modal and the lightbox, and the arrow keys move through the gallery.
+- Focus moves into both dialogs and back to the trigger when they close, and Tab stays inside them.
+- Focus outlines are 3px dark green and easy to see.
+- Errors are announced with `role="alert"`, described with `aria-describedby`, and repeated in a summary that receives focus. Colour is never the only signal.
+- Search results, price previews, coordinates and form status are announced politely.
+- All content images have alt text, and decorative icons are hidden from screen readers.
+- Animation is removed when reduced motion is set.
+- The location list under the map covers the same information as the canvas.
+- Dark green on cream and white on dark green both pass AA contrast.
 
----
+## h. SEO summary
 
-## h. Search engine optimisation (summary)
+Every page carries a unique title, a description of 150 to 160 characters, 6 keywords, a canonical link, Open Graph and Twitter tags, `LocalBusiness` JSON-LD and a CSP. `robots.txt` and `sitemap.xml` sit in the site root. The off-page plan is in section f. The deployment address is the only value that needs updating if the site moves.
 
-Every page carries: a unique title, a 150–160 character description, 6 keywords, canonical URL, Open Graph and Twitter tags, `LocalBusiness` JSON-LD with NAP and geo-coordinates, and a Content Security Policy. The site root carries `robots.txt` and `sitemap.xml`. The off-page plan is listed in section f.5.
+## i. Forms summary
 
-**One value to update after deployment:** every canonical URL, `og:url`, `og:image` and sitemap entry currently uses the assumed deployment address `https://greenthumbgarden.netlify.app/`. Search and replace that string in all HTML files, `robots.txt` and `sitemap.xml` if the final URL is different.
-
----
-
-## i. Forms (summary)
-
-Two forms, both fully labelled, validated with regular expressions, keyboard accessible and announced to screen readers:
-
-- `enquiry.html` → simulated asynchronous POST with a personalised quotation and reference number.
-- `contact.html` → `mailto:` message built with `encodeURIComponent` and a copy-address fallback.
-
-Full details are in section f.6.
-
----
+Two forms, both labelled, validated with regular expressions, usable with the keyboard and announced to screen readers. `enquiry.html` simulates an asynchronous POST and returns a quote with a reference number. `contact.html` builds a `mailto:` message with `encodeURIComponent` and has a copy-address fallback. The details are in section f.
 
 ## j. Changelog
 
-### Version 3.0.0 — 9 November 2026 (Part 3)
+### 3.0.0, 9 November 2026 (Part 3)
 
-**Added**
-- `js/main.js`: mobile navigation, FAQ accordion, modal dialog, scroll reveal, dynamic footer year.
-- `gallery.html` and `js/gallery.js`: nine-photo gallery with a full keyboard-accessible lightbox.
-- `find-us.html` and `js/map.js`: OpenLayers map with four markers, popups, coordinate readout and zoom/reset controls.
-- `data/services.json` and `js/services.js`: JSON-driven programme list with live search, category filter, four sort orders, loading, empty and error states.
-- `enquiry.html` and `js/enquiry.js`: validated enquiry form with simulated asynchronous submission and a personalised quotation.
-- `contact.html` and `js/contact.js`: validated contact form with a `mailto:` fallback and confirmation panel.
-- `404.html`, `robots.txt` and `sitemap.xml`.
-- SEO metadata, Open Graph, Twitter Cards, `LocalBusiness` JSON-LD, CSP and SRI on every page.
-- Nine optimised photographs with descriptive file names and full credits.
+Added `js/main.js` with the mobile menu, accordion, modal, scroll reveal and footer year. Added `gallery.html` and `js/gallery.js`. Added `find-us.html` and `js/map.js`. Added `data/services.json` and `js/services.js`. Added the enquiry and contact forms with their scripts. Added `404.html`, `robots.txt` and `sitemap.xml`. Added SEO metadata, structured data, CSP and SRI to every page. Added nine photographs with descriptive names and credits.
 
-**Changed**
-- Repository restructured so the site sits at the repository root for simpler hosting.
-- All parts 1 and 2 pages rebuilt on the new shared header and footer with a consistent NAP.
-- Stylesheet extended with Part 3 components; the Part 1/2 palette, fonts and breakpoints are unchanged.
-- `references.md` consolidated into this README.
-- Prices and the address were updated to South African rand and a Durban location.
+Changed the repository so the site sits at the root, which makes hosting simpler. Rebuilt the Part 1 and Part 2 pages on the shared header and footer with one address and phone number. Extended the stylesheet with the Part 3 components and kept the old palette, fonts and breakpoints. Merged `references.md` into this README. Changed prices to rand and moved the garden to Durban.
 
-**Removed**
-- `green-thumb-garden.html` (orphan duplicate of the home page).
-- Old image files `garden-1.jpg`, `garden-2.jpg`, `workshop.jpg` (replaced by descriptively named, compressed versions).
+Removed `green-thumb-garden.html`, and removed `garden-1.jpg`, `garden-2.jpg` and `workshop.jpg` after replacing them with named, compressed images.
 
-### Version 2.0.0 — 6 October 2026 (Part 2)
+### 2.0.0, 6 October 2026 (Part 2)
 
-**Added**
-- `css/styles.css` linked from every page: layout, cards, footer, forms and three responsive breakpoints.
-- Screenshots at 1366px, 768px and 375px in `screenshots/`.
-- Harvard reference list of seven online sources.
+Added `css/styles.css`, linked from every page, with the layout, cards, footer, forms and three breakpoints. Added screenshots at 1366px, 768px and 375px, and a Harvard reference list of seven sources. Replaced inline styles with shared classes, and fixed a broken logo and some stray text on the duplicate page.
 
-**Changed**
-- Replaced the stray inline styling with shared classes.
-- Fixed a broken logo and stray text on the duplicate page.
+### 1.0.0, September 2026 (Part 1)
 
-### Version 1.0.0 — September 2026 (Part 1)
+Added `index.html`, `about.html`, `services.html`, `enquiry.html` and `contact.html`, three garden photos and the original green and cream layout.
 
-**Added**
-- `index.html`, `about.html`, `services.html`, `enquiry.html`, `contact.html`.
-- Three garden photographs and the original green and cream layout.
+## k. Commit history
 
----
+The Part 3 work is in 17 commits, plus the initial commit and one later housekeeping commit, so 19 in total. `git log --oneline` shows them in this order:
 
-## k. Git commit history
-
-Seventeen descriptive commits cover Part 3, listed here with the exact commands used, so the history can be reproduced commit by commit.
-
-```bash
-# 1
-git add images/
-git commit -m "Add nine descriptively named, compressed gallery photographs"
-
-# 2
-git add screenshots/
-git commit -m "Add responsive layout screenshots for desktop, tablet and mobile"
-
-# 3
-git add css/styles.css
-git commit -m "Extend stylesheet with accordion, modal, gallery, form and map components"
-
-# 4
-git add js/main.js
-git commit -m "Add shared JavaScript for navigation, accordion, modal and scroll reveal"
-
-# 5
-git add gallery.html js/gallery.js
-git commit -m "Add photo gallery with keyboard-accessible lightbox"
-
-# 6
-git add data/services.json
-git commit -m "Add JSON data file for the ten garden programmes"
-
-# 7
-git add js/services.js
-git commit -m "Add live search, category filter and sorting for programmes"
-
-# 8
-git add find-us.html js/map.js
-git commit -m "Add OpenLayers map with four location markers and directions links"
-
-# 9
-git add js/enquiry.js
-git commit -m "Add enquiry validation, quotation and asynchronous submission"
-
-# 10
-git add js/contact.js
-git commit -m "Add contact form validation and mailto fallback"
-
-# 11
-git add index.html
-git commit -m "Rebuild home page with FAQ accordion, tour modal and SEO metadata"
-
-# 12
-git add about.html
-git commit -m "Rebuild about page, correct organisation name and fix spelling"
-
-# 13
-git add services.html
-git commit -m "Rebuild services page around the dynamic programme list"
-
-# 14
-git add enquiry.html
-git commit -m "Rebuild enquiry form with fieldsets, validation messages and quote panel"
-
-# 15
-git add contact.html
-git commit -m "Rebuild contact page with validated form and mailto confirmation"
-
-# 16
-git add 404.html robots.txt sitemap.xml
-git commit -m "Add 404 page, robots.txt and XML sitemap"
-
-# 17
-git add README.md
-git commit -m "Write Part 3 README with changelog, references and deployment guide"
-
-# 18 - publish
-git push origin main
 ```
-
-> These seventeen commits are the Part 3 build and match the pushed history commit for commit; `git log --oneline` also shows one housekeeping commit at the top, which adds the ignore rules and this correction. Run it to show the full history.
+Initial commit
+Add nine descriptively named, compressed gallery photographs
+Add responsive layout screenshots for desktop, tablet and mobile
+Extend stylesheet with accordion, modal, gallery, form and map components
+Add shared JavaScript for navigation, accordion, modal and scroll reveal
+Add photo gallery with keyboard-accessible lightbox
+Add JSON data file for the ten garden programmes
+Add live search, category filter and sorting for programmes
+Add OpenLayers map with four location markers and directions links
+Add enquiry validation, quotation and asynchronous submission
+Add contact form validation and mailto fallback
+Rebuild home page with FAQ accordion, tour modal and SEO metadata
+Rebuild about page, correct organisation name and fix spelling
+Rebuild services page around the dynamic programme list
+Rebuild enquiry form with fieldsets, validation messages and quote panel
+Rebuild contact page with validated form and mailto confirmation
+Add 404 page, robots.txt and XML sitemap
+Write Part 3 README with changelog, references and deployment guide
+Keep the repository clean and align the documented commit list
+```
 
 ## l. Deployment
 
-The site is plain HTML, CSS and JavaScript with no build step, so it can be hosted on any static host. **Netlify** is recommended because it serves the custom `404.html` automatically.
+The site is plain HTML, CSS and JavaScript with no build step, so any static host will do. Netlify is the easiest because it serves `404.html` automatically.
 
-### Option A — Netlify (drag and drop, 2 minutes)
+Drag and drop on Netlify: sign in, choose "Add new site" then "Deploy manually", drag the project folder onto the page, and open Site configuration to change the site name and check that HTTPS is active. If the final address is not `https://greenthumbgarden.netlify.app/`, replace that string in the HTML files, `robots.txt` and `sitemap.xml` and deploy again.
 
-1. Sign in at <https://app.netlify.com> [R28].
-2. Choose **Add new site → Deploy manually**.
-3. Drag the whole project folder (the folder that contains `index.html`) onto the drop area.
-4. Netlify publishes the site and shows a URL such as `https://random-name-123.netlify.app`.
-5. Open **Site configuration → Change site name** and use `greenthumbgarden`.
-6. Open **Domain management → HTTPS** and confirm the certificate is active.
-7. Replace `https://greenthumbgarden.netlify.app` in all HTML files, `robots.txt` and `sitemap.xml` if your URL is different, then redeploy.
+Netlify from GitHub: push the last commit, choose "Import an existing project", pick this repository, leave the build command empty and set the publish directory to `.`.
 
-### Option B — Netlify from GitHub (recommended for the marking team)
+GitHub Pages: open the repository settings, choose Pages, deploy from the `main` branch and the root folder [R27]. The site then appears under `emknpm.github.io`, and the canonical URLs, `robots.txt` and `sitemap.xml` need changing to that address.
 
-1. Push the final commit to GitHub.
-2. In Netlify choose **Add new site → Import an existing project → GitHub**.
-3. Authorise Netlify and pick the repository `wede5020-wede-poe-jovan-david`.
-4. Build command: **leave empty**. Publish directory: **`.`** (the repository root).
-5. Deploy. Every future `git push` publishes automatically.
+After deploying, submit the sitemap in Search Console, run Lighthouse on the live URL and open the site on a real phone.
 
-### Option C — GitHub Pages
+## m. Testing checklist
 
-1. Push the final commit to GitHub.
-2. Open the repository → **Settings → Pages** [R27].
-3. Under **Build and deployment**, choose **Deploy from a branch**, branch **main**, folder **/ (root)**.
-4. Save and wait for the green tick; the site appears at `https://emknpm.github.io/wede5020-wede-poe-jovan-david/`.
-5. Update the canonical URLs, `robots.txt` and `sitemap.xml` to that address and commit again.
+Everything below was checked before the final commit, and the browser tests were repeated after deploying.
 
-### After deployment
+- Every internal link opens the right page, with no 404s.
+- No reference to `green-thumb-garden.html` or `references.md` is left.
+- All nine images exist under the names used in the HTML and the JSON.
+- `data/services.json` is at that path and parses as valid JSON.
+- Every page has one `<h1>`, a unique title and a meta description.
+- Canonical, Open Graph and Twitter URLs point at the deployment address.
+- `robots.txt` and `sitemap.xml` list the same seven pages.
+- No console errors on any page.
+- No passwords, API keys or personal data in the repository.
+- Layout checked at 1366px, 768px and 375px.
 
-- Submit `sitemap.xml` in Google Search Console.
-- Test the live URL with Lighthouse (Performance, Accessibility, Best Practices, SEO).
-- Test on a real phone, not only in the browser's device emulator.
+The main things tested by hand were the modal and accordion keys, searching and filtering the programme list, the lightbox keys, the map markers, coordinates and zoom buttons, submitting both forms empty and then correctly, the mobile menu at 375px, and turning JavaScript off to check that the content and the form `action` still work.
 
----
+## References
 
-## m. Pre-deploy and testing checklist
-
-### Before deploying
-
-- [x] Every internal link opens the right page (no 404s).
-- [x] No reference to `green-thumb-garden.html` or `references.md` remains.
-- [x] All nine images exist with the exact file names used in the HTML and JSON.
-- [x] `data/services.json` is reachable at that path and is valid JSON.
-- [x] Every page has one `<h1>`, a unique title and a meta description.
-- [x] Canonical, Open Graph and Twitter URLs point at the deployment address.
-- [x] `robots.txt` and `sitemap.xml` list the same seven pages.
-- [x] No console errors on any page.
-- [x] No API keys, passwords or personal data in the repository.
-- [x] Tested at 1366px, 768px and 375px widths.
-
-### Manual test script (repeat on the live site)
-
-| # | Test | Expected result |
-|---|---|---|
-| 1 | Open `index.html` and click "Book a free garden tour" | Modal opens, focus lands inside, Escape closes it, focus returns to the button |
-| 2 | Open an FAQ question with the keyboard (Tab then Enter) | Panel opens, `aria-expanded` becomes true, only one panel is open |
-| 3 | Open `services.html`, type "compost" | List filters instantly and the count updates |
-| 4 | Choose the "Plots" category and sort by price high to low | Only plots appear, most expensive first |
-| 5 | Search "zzz" | No-results message with a "Clear filters" button |
-| 6 | Click "Enquire about this" on a card | Enquiry form opens with that programme preselected |
-| 7 | Open `gallery.html` and click a photo | Lightbox opens; arrows, Escape and click-outside all work |
-| 8 | Open `find-us.html` | Map loads with four green markers |
-| 9 | Click a marker | Popup shows the address and a working Google Maps directions link |
-| 10 | Click empty map space | Latitude and longitude appear in the coordinates bar |
-| 11 | Use the zoom in, zoom out and reset buttons | Map zooms and reframes all four markers |
-| 12 | Submit the enquiry form empty | Error summary lists every problem and focus moves to it |
-| 13 | Enter an invalid phone such as `12345` | Inline error explains the South African mobile format |
-| 14 | Fill the enquiry form correctly and submit | Button shows a loading state, then a quote with total and reference |
-| 15 | Submit the contact form correctly | Confirmation panel appears with a mailto link and copy button |
-| 16 | Open the site on a phone at 375px | Menu collapses behind the Menu button and every page stays readable |
-| 17 | Turn JavaScript off and reload | All content and the menu remain visible; forms fall back to their `action` |
-| 18 | Run Lighthouse on the live URL | Accessibility and SEO 90+ |
-
----
-
-## n. References
-
-All sources were accessed on 9 November 2026 unless stated otherwise. Harvard (IIE) style is used, and every feature in this project cites at least one source from this list. Numbers in square brackets in the code comments match the numbers below.
+All sources were accessed on 9 November 2026 unless stated otherwise, in Harvard (IIE) style. The bracketed numbers in the code comments match this list.
 
 1. [R1] MDN Web Docs (2026) *Fetch API*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API (Accessed: 9 November 2026).
 2. [R2] MDN Web Docs (2026) *Using the Fetch API*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch (Accessed: 9 November 2026).
@@ -518,9 +264,9 @@ All sources were accessed on 9 November 2026 unless stated otherwise. Harvard (I
 6. [R6] OpenLayers (2026) *OpenLayers documentation*. Available at: https://openlayers.org/doc/ (Accessed: 9 November 2026).
 7. [R7] OpenLayers (2026) *Overlay API reference*. Available at: https://openlayers.org/en/latest/apidoc/module-ol_Overlay-Overlay.html (Accessed: 9 November 2026).
 8. [R8] OpenStreetMap Foundation (2026) *Tile usage policy*. Available at: https://operations.osmfoundation.org/policies/tiles/ (Accessed: 9 November 2026).
-9. [R9] W3Schools (2026) *How TO — Lightbox*. Available at: https://www.w3schools.com/howto/howto_js_lightbox.asp (Accessed: 9 November 2026).
-10. [R10] W3Schools (2026) *How TO — Accordion*. Available at: https://www.w3schools.com/howto/howto_js_accordion.asp (Accessed: 9 November 2026).
-11. [R11] W3Schools (2026) *How TO — CSS Modal*. Available at: https://www.w3schools.com/howto/howto_css_modals.asp (Accessed: 9 November 2026).
+9. [R9] W3Schools (2026) *How TO - Lightbox*. Available at: https://www.w3schools.com/howto/howto_js_lightbox.asp (Accessed: 9 November 2026).
+10. [R10] W3Schools (2026) *How TO - Accordion*. Available at: https://www.w3schools.com/howto/howto_js_accordion.asp (Accessed: 9 November 2026).
+11. [R11] W3Schools (2026) *How TO - CSS Modal*. Available at: https://www.w3schools.com/howto/howto_css_modals.asp (Accessed: 9 November 2026).
 12. [R12] W3C (2023) *Web Content Accessibility Guidelines (WCAG) 2.2*. Available at: https://www.w3.org/TR/WCAG22/ (Accessed: 9 November 2026).
 13. [R13] Google Search Central (2026) *SEO starter guide*. Available at: https://developers.google.com/search/docs/fundamentals/seo-starter-guide (Accessed: 9 November 2026).
 14. [R14] Google Search Central (2026) *Build and submit a sitemap*. Available at: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap (Accessed: 9 November 2026).
@@ -532,99 +278,59 @@ All sources were accessed on 9 November 2026 unless stated otherwise. Harvard (I
 20. [R20] MDN Web Docs (2026) *Subresource Integrity*. Available at: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity (Accessed: 9 November 2026).
 21. [R21] MDN Web Docs (2026) *Intersection Observer API*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API (Accessed: 9 November 2026).
 22. [R22] MDN Web Docs (2026) *URLSearchParams*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams (Accessed: 9 November 2026).
-23. [R23] MDN Web Docs (2026) *Creating hyperlinks (mailto links)*. Available at: https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks (Accessed: 9 November 2026).
+23. [R23] MDN Web Docs (2026) *Creating hyperlinks*. Available at: https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks (Accessed: 9 November 2026).
 24. [R24] MDN Web Docs (2026) *JSON*. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON (Accessed: 9 November 2026).
 25. [R25] MDN Web Docs (2026) *Array.prototype.sort()*. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort (Accessed: 9 November 2026).
 26. [R26] Wikimedia Commons (2026) *Free media repository*. Available at: https://commons.wikimedia.org/ (Accessed: 9 November 2026).
 27. [R27] GitHub Docs (2026) *GitHub Pages*. Available at: https://docs.github.com/en/pages (Accessed: 9 November 2026).
 28. [R28] Netlify (2026) *Netlify documentation*. Available at: https://docs.netlify.com/ (Accessed: 9 November 2026).
 
-Also acknowledged: the **lecturer-supplied MapBox/OpenLayers sample** used in class as the starting point for the mapping pattern, and the AI assistant credited in section p.
+Also acknowledged: the lecturer's MapBox and OpenLayers sample used in class, which the mapping pattern started from.
 
----
+## Image credits
 
-## o. Image credits
+The photographs are used under a Creative Commons licence or are in the public domain. They were resized and compressed for the web and were not otherwise edited. Sources are Wikimedia Commons [R26].
 
-All photographs are used under a Creative Commons licence or are in the public domain. Images were resized and re-compressed for the web; no other edits were made. Sources are Wikimedia Commons [R26].
+| File | Subject | Author | Licence |
+|---|---|---|---|
+| `community-vegetable-garden-rows.jpg` | Rows of vegetables in community beds | Part 1 image, renamed in Part 3 | Creative Commons, declared in Part 1 |
+| `child-planting-seedlings.jpg` | A young gardener planting a seedling | Part 1 image, renamed in Part 3 | Creative Commons, declared in Part 1 |
+| `container-gardening-workshop.jpg` | A volunteer showing container planting | Part 1 image, renamed in Part 3 | Creative Commons, declared in Part 1 |
+| `raised-bed-vegetable-plot.jpg` | A raised bed with compost and seedlings | Ciara Ni Riain | CC BY-SA 4.0 |
+| `volunteer-planting-garden-bed.jpg` | A volunteer planting in a garden bed | vastateparksstaff | CC BY 2.0 |
+| `school-kitchen-garden-bed.jpg` | Raised beds at a school food garden | Libby Kokes | CC BY-SA 4.0 |
+| `herb-garden-beds-planting.jpg` | Long raised herb and kitchen beds | PralineCoffee | CC0 1.0 |
+| `harvest-market-vegetable-stall.jpg` | A produce stall at a farmers market | Nick-D | CC BY-SA 4.0 |
+| `community-garden-volunteers-tulips.jpg` | Neighbours planting flowers in a street garden | Hu Gadarn | Public domain |
 
-| File | What it shows | Author | Licence | Source page |
-|---|---|---|---|---|
-| `community-vegetable-garden-rows.jpg` | Rows of vegetables in raised community beds | Part 1 image, renamed in Part 3 | Creative Commons (declared in Part 1) | Wikimedia Commons |
-| `child-planting-seedlings.jpg` | Young gardener planting a seedling | Part 1 image, renamed in Part 3 | Creative Commons (declared in Part 1) | Wikimedia Commons |
-| `container-gardening-workshop.jpg` | Volunteer demonstrating container planting | Part 1 image, renamed in Part 3 | Creative Commons (declared in Part 1) | Wikimedia Commons |
-| `raised-bed-vegetable-plot.jpg` | Raised bed with compost and seedlings | Ciara Ní Riain | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Community_garden_Helston_Cornwall_01.jpg |
-| `volunteer-planting-garden-bed.jpg` | Volunteer planting in a garden bed | vastateparksstaff | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Volunteers_help_maintain_the_garden_throughout_the_year._-_AA_(13991451719).jpg |
-| `school-kitchen-garden-bed.jpg` | Raised beds at a school food garden | Libby Kokes | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Raised_Beds_Out_Front_of_School.jpg |
-| `herb-garden-beds-planting.jpg` | Long raised herb and kitchen beds | PralineCoffee | CC0 1.0 | https://commons.wikimedia.org/wiki/File:Kitchen_garden_at_Los_Poblanos.jpg |
-| `harvest-market-vegetable-stall.jpg` | Produce stall at a farmers market | Nick-D | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Fruit_and_vegetable_stall_at_Southside_Farmers_Market_November_2025.jpg |
-| `community-garden-volunteers-tulips.jpg` | Neighbours planting flowers in a street garden | Hu Gadarn | Public domain | https://commons.wikimedia.org/wiki/File:Community_gardening,_East_Vancouver.jpg |
+The source pages for the six Part 3 images are:
 
-> **Before commercial reuse:** the three Part 1 photographs were supplied with the earlier parts of this project. Their exact file pages should be confirmed on Wikimedia Commons, because a CC BY or CC BY-SA licence also requires the author's name to be displayed. The six images added in Part 3 are fully credited above.
+- https://commons.wikimedia.org/wiki/File:Community_garden_Helston_Cornwall_01.jpg
+- https://commons.wikimedia.org/wiki/File:Volunteers_help_maintain_the_garden_throughout_the_year._-_AA_(13991451719).jpg
+- https://commons.wikimedia.org/wiki/File:Raised_Beds_Out_Front_of_School.jpg
+- https://commons.wikimedia.org/wiki/File:Kitchen_garden_at_Los_Poblanos.jpg
+- https://commons.wikimedia.org/wiki/File:Fruit_and_vegetable_stall_at_Southside_Farmers_Market_November_2025.jpg
+- https://commons.wikimedia.org/wiki/File:Community_gardening,_East_Vancouver.jpg
 
----
+The three Part 1 photographs came with the earlier parts of the project. Their file pages on Wikimedia Commons should still be checked before the site is used commercially, because CC BY and CC BY-SA also require the author's name to be shown.
 
-## p. AI and tool declaration
+## Tools and AI
 
-- **AI assistance:** an AI coding assistant (Buffy / Codebuff) was used to help plan the file structure, draft the JavaScript and CSS, and check the HTML for errors. All code was read, tested and edited by the student, and every page was tested in the browser using the checklist in section m.
-- **External code:** the accordion, modal and lightbox patterns follow the W3Schools tutorials cited as [R9], [R10] and [R11]; the map follows the OpenLayers documentation [R6][R7] and the lecturer's in-class sample.
-- **Libraries:** only OpenLayers 10.6.1 is loaded from a CDN. No jQuery or framework is used, because every interaction is short enough to write in plain JavaScript.
-- **No paid services, API keys or accounts** are required by the site.
+I used an AI coding assistant to help plan the file structure, draft parts of the JavaScript and CSS, and check the HTML. I read, tested and edited everything myself, and checked the pages against the list in section m.
 
----
+The accordion, modal and lightbox follow the W3Schools tutorials cited above. The map follows the OpenLayers documentation and the lecturer's in-class sample. OpenLayers is the only library loaded from a CDN. There is no framework, no paid service and no API key.
 
-## q. Self-audit against the Part 3 brief
+## Self check against the brief
 
-| Requirement | Evidence | Status |
-|---|---|---|
-| Part 2 feedback listed and addressed | Section e, 14 items | Done |
-| At least two interactive elements with transitions | FAQ accordion + tour modal, plus gallery lightbox | Done |
-| Advanced DOM manipulation | Dynamic cards, delegated chip clicks, focus traps | Done |
-| Keyboard accessible (Escape, `aria-expanded`, focus) | `js/main.js`: accordion, modal | Done |
-| OpenLayers map in `js/map.js` | `find-us.html` + `js/map.js` | Done |
-| OSM tiles, multiple markers, popups | Four markers with popups | Done |
-| Click for coordinates | `#map-coordinates` live region | Done |
-| Zoom in/out/reset | Three toolbar buttons | Done |
-| "Get directions" Google Maps link | Popup directions button | Done |
-| Map responsive | `#map` heights + `updateSize()` | Done |
-| Gallery grid with images | Nine items, `gallery.html` | Done |
-| Lightbox prev/next/close | `js/gallery.js` | Done |
-| Escape and arrow keys | `js/gallery.js` keydown handler | Done |
-| Click outside to close | Backdrop click handler | Done |
-| Lazy loading, width/height, alt text | Every gallery image | Done |
-| JSON dynamic content | `data/services.json` + `js/services.js` | Done |
-| Live search | `input` event on `#service-search` | Done |
-| Category filter | Generated chips | Done |
-| Sorting | Four sort options | Done |
-| No-results message | `.empty-state` with clear button | Done |
-| Fallback if JSON fails | `.error-state` with retry | Done |
-| Unique title under 60 characters | All eight pages | Done |
-| Meta description 150–160 characters | All eight pages | Done |
-| 5–8 keywords | All eight pages | Done |
-| One `<h1>`, viewport, lang | All pages | Done |
-| Canonical, OG, Twitter | All pages | Done |
-| Descriptive alt text | All images | Done |
-| Clean URLs | Lowercase hyphenated file names | Done |
-| NAP + LocalBusiness JSON-LD | Every page | Done |
-| `robots.txt` and `sitemap.xml` | Project root | Done |
-| CSP allowing the CDNs | Meta tag on every page | Done |
-| `rel="noopener noreferrer"` and SRI | External links; OpenLayers files | Done |
-| `textContent` instead of `innerHTML` | All JavaScript | Done |
-| Off-page SEO plan | Section f.5, seven actions | Done |
-| Enquiry controls and regex validation | `enquiry.html` + `js/enquiry.js` | Done |
-| AJAX submission with loading state | `async`/`await` + simulated endpoint | Done |
-| Personalised quote, availability, reply time | `#quote-panel` | Done |
-| Real form `action` | `formsubmit.co` endpoint | Done |
-| Contact form validation | `js/contact.js` | Done |
-| `mailto:` with `RECIPIENT_EMAIL` and `encodeURIComponent` | `js/contact.js` | Done |
-| Confirmation with "Open in email app" | `#contact-confirmation` | Done |
-| 15–25 descriptive commits with commands | Section k | Done |
-| README sections a–k in order | This document | Done |
-| Dated changelog, newest first, Parts 1–3 | Section j | Done |
-| At least five real Harvard references with citations | Section n, 28 references | Done |
-| AI and tool declaration | Section p | Done |
-| Image licences | Section o | Done (3 Part 1 images to confirm) |
-| Deployment steps and checklist | Sections l and m | Done |
+- Part 2 feedback listed and fixed: section e, 14 items.
+- Interactive elements with transitions: FAQ accordion and tour modal, plus the lightbox.
+- Advanced DOM work: cards built in JavaScript, generated filter chips, focus traps.
+- Keyboard access: Escape, arrow keys, `aria-expanded` and focus handling in `js/main.js` and `js/gallery.js`.
+- Map: `js/map.js`, four markers, popups, coordinates on click, zoom and reset buttons, directions links, responsive.
+- Gallery: nine images, lightbox with previous, next, close, Escape and click outside, lazy loading and alt text.
+- JSON content: `data/services.json` and `js/services.js`, with search, filter, sorting, empty state and error state.
+- SEO: title, description, keywords, headings, canonical, social tags, alt text, NAP, JSON-LD, `robots.txt`, `sitemap.xml`, CSP, SRI and no `innerHTML`.
+- Forms: labelled fields, regular expression validation, loading state, asynchronous submission, quote and reference, real `action`, and the `mailto:` contact form.
+- Changelog, commit history, references, image credits and deployment steps are in sections j, k, l and the lists below it.
 
----
-
-**End of README.** Prepared by Jovan David (ST10510821) for WEDE5020 Part 3, 9 November 2026.
+Prepared by Jovan David (ST10510821) for WEDE5020 Part 3, 9 November 2026.
