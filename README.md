@@ -351,18 +351,16 @@ Full details are in section f.6.
 
 ## k. Git commit history
 
-Eighteen descriptive commits were used for Part 3, listed below with the exact commands, so the history can be reproduced commit by commit.
+Seventeen descriptive commits cover Part 3, listed here with the exact commands used, so the history can be reproduced commit by commit.
 
 ```bash
-# The site already sits at the repository root, so commit 1 starts with the images.
-
 # 1
 git add images/
 git commit -m "Add nine descriptively named, compressed gallery photographs"
 
 # 2
-git add green-thumb-garden.html references.md
-git commit -m "Remove duplicate home page and consolidate references into README"
+git add screenshots/
+git commit -m "Add responsive layout screenshots for desktop, tablet and mobile"
 
 # 3
 git add css/styles.css
@@ -424,17 +422,11 @@ git commit -m "Add 404 page, robots.txt and XML sitemap"
 git add README.md
 git commit -m "Write Part 3 README with changelog, references and deployment guide"
 
-# 18
-git add README.md
-git commit -m "Align the documented commit list with the actual pushed history"
-
-# 19 - publish
+# 18 - publish
 git push origin main
 ```
 
-> This list matches the pushed history commit for commit; run `git log --oneline` to show it.
-
----
+> These seventeen commits are the Part 3 build and match the pushed history commit for commit; `git log --oneline` also shows one housekeeping commit at the top, which adds the ignore rules and this correction. Run it to show the full history.
 
 ## l. Deployment
 

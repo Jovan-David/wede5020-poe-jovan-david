@@ -1,0 +1,8 @@
+# Editor settings that are not part of the website
+.vscode/
+
+# Original assignment briefs (reference documents, not website assets)
+*.pdf
+
+# Earlier Part 1 submission kept locally, archived separately from this repo
+wede5020-wede5112-poe-part-one-jovan-david/
