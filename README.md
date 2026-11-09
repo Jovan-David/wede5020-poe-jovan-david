@@ -5,7 +5,7 @@ WEDE5020 Portfolio of Evidence, Part 3 (final website).
 - Student: Jovan David
 - Student number: ST10510821
 - Module: WEDE5020 Web Development Introduction
-- Repository: https://github.com/EMKNPM/wede5020-wede-poe-jovan-david
+- Repository: https://github.com/Jovan-David/wede5020-poe-jovan-david
 - Live site: https://jovan-david.github.io/wede5020-poe-jovan-david/
 
 ## a. Project overview

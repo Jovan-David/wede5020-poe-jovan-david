@@ -1,6 +1,6 @@
 # robots.txt - GreenThumb Community Garden
 # WEDE5020 Part 3 | Jovan David (ST10510821)
-# Rules for search engine crawlers [R15]
+# Rules for search engine crawlers [15]
 # Last updated: 9 November 2026
 
 User-agent: *
@@ -9,5 +9,5 @@ Allow: /
 # Design evidence and admin files do not need to be indexed
 Disallow: /screenshots/
 
-# Sitemap location (full URL is required by the standard) [R14]
+# Sitemap location (full URL is required by the standard) [14]
 Sitemap: https://jovan-david.github.io/wede5020-poe-jovan-david/sitemap.xml
