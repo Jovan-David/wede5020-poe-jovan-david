@@ -10,4 +10,4 @@ Allow: /
 Disallow: /screenshots/
 
 # Sitemap location (full URL is required by the standard) [R14]
-Sitemap: https://greenthumbgarden.netlify.app/sitemap.xml
+Sitemap: https://jovan-david.github.io/wede5020-poe-jovan-david/sitemap.xml

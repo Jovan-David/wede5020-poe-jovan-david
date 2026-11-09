@@ -6,7 +6,7 @@ WEDE5020 Portfolio of Evidence, Part 3 (final website).
 - Student number: ST10510821
 - Module: WEDE5020 Web Development Introduction
 - Repository: https://github.com/EMKNPM/wede5020-wede-poe-jovan-david
-- Live site: https://greenthumbgarden.netlify.app/
+- Live site: https://jovan-david.github.io/wede5020-poe-jovan-david/
 
 ## a. Project overview
 
@@ -27,7 +27,7 @@ gallery.html          Nine photos with a keyboard accessible lightbox
 find-us.html          OpenLayers map with four markers and directions links
 enquiry.html          Programme enquiry form with validation and a quote
 contact.html          Contact details and a form with a mailto fallback
-404.html              Page not found page, used by Netlify
+404.html              Page not found page, served by GitHub Pages
 ```
 
 ```
@@ -140,7 +140,7 @@ Every page has a title under 60 characters, a meta description of 150 to 160 cha
 
 The off-page plan, written up for the assignment, is: claim the Google Business Profile with the same details as the site, list the garden in Durban community directories and volunteer portals, ask the schools and halls that host the workshops to link back, use the same handle on Facebook and Instagram and link them in the footer, post something short about what to plant each month, ask attendees for Google reviews that mention Durban, and submit the sitemap in Search Console.
 
-The canonical, `og:url` and `og:image` values all use `https://greenthumbgarden.netlify.app/`. If the site ends up at a different address, that string needs replacing in all the HTML files, `robots.txt` and `sitemap.xml`.
+The canonical, `og:url` and `og:image` values all use `https://jovan-david.github.io/wede5020-poe-jovan-david/`. If the site moves, that string has to be replaced in all the HTML files, `robots.txt` and `sitemap.xml`.
 
 ### Forms
 
@@ -225,13 +225,11 @@ Keep the repository clean and align the documented commit list
 
 ## l. Deployment
 
-The site is plain HTML, CSS and JavaScript with no build step, so any static host will do. Netlify is the easiest because it serves `404.html` automatically.
+The site is plain HTML, CSS and JavaScript with no build step, so any static host will do. It is published with GitHub Pages from the `main` branch and the repository root [R27], which serves `404.html` for missing pages.
 
-Drag and drop on Netlify: sign in, choose "Add new site" then "Deploy manually", drag the project folder onto the page, and open Site configuration to change the site name and check that HTTPS is active. If the final address is not `https://greenthumbgarden.netlify.app/`, replace that string in the HTML files, `robots.txt` and `sitemap.xml` and deploy again.
+To publish it again after a change, commit and push to `main`; Pages rebuilds on its own. The site address is then `https://jovan-david.github.io/wede5020-poe-jovan-david/`, which is the address used in the canonical tags, `robots.txt` and `sitemap.xml`. If it moves to another host, that string has to be replaced before the new deploy.
 
-Netlify from GitHub: push the last commit, choose "Import an existing project", pick this repository, leave the build command empty and set the publish directory to `.`.
-
-GitHub Pages: open the repository settings, choose Pages, deploy from the `main` branch and the root folder [R27]. The site then appears under `emknpm.github.io`, and the canonical URLs, `robots.txt` and `sitemap.xml` need changing to that address.
+Netlify can host it as well: sign in, choose "Add new site" then "Deploy manually", and drag the project folder onto the page. Importing the repository works too, with an empty build command and `.` as the publish directory.
 
 After deploying, submit the sitemap in Search Console, run Lighthouse on the live URL and open the site on a real phone.
 
