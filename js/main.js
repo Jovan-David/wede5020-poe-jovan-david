@@ -8,7 +8,7 @@
    4. Scroll reveal animation
    5. Footer year
    Everything here uses plain (vanilla) JavaScript - no library
-   is needed for these behaviours. See [R10], [R11], [R12].
+   is needed for these behaviours. See [10], [11], [12].
    ============================================================ */
 
 (function () {
@@ -20,7 +20,7 @@
   document.documentElement.classList.add("js-enabled");
 
   /* ------------------------------------------------------------
-     1. MOBILE NAVIGATION  [R12]
+     1. MOBILE NAVIGATION  [12]
      The button opens and closes the menu, keeps aria-expanded in
      sync and closes the menu when the Escape key is pressed.
      ------------------------------------------------------------ */
@@ -54,7 +54,7 @@
   }
 
   /* ------------------------------------------------------------
-     2. ACCORDION  [R10]
+     2. ACCORDION  [10]
      Each trigger owns one panel. Only one panel stays open at a
      time so the FAQ stays easy to scan on a phone.
      ------------------------------------------------------------ */
@@ -95,7 +95,7 @@
   }
 
   /* ------------------------------------------------------------
-     3. MODAL DIALOG  [R11]
+     3. MODAL DIALOG  [11]
      Any element with [data-modal-open="modal-id"] opens a modal.
      Focus moves into the dialog, Tab is trapped inside it and the
      Escape key or a click on the dark backdrop closes it again.
@@ -190,7 +190,7 @@
   }
 
   /* ------------------------------------------------------------
-     4. SCROLL REVEAL  [R21]
+     4. SCROLL REVEAL  [21]
      IntersectionObserver adds .is-visible when a .reveal element
      scrolls into view. If the browser does not support it, the
      elements are simply shown straight away.

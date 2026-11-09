@@ -9,8 +9,8 @@
      - Escape or a click on the dark background closes it
      - Tab stays inside the lightbox while it is open
      - the photo count and caption are announced politely
-   Pattern based on the W3Schools lightbox tutorial [R9] and the
-   accessibility rules in WCAG 2.2 [R12].
+   Pattern based on the W3Schools lightbox tutorial [9] and the
+   accessibility rules in WCAG 2.2 [12].
    ============================================================ */
 
 (function () {

@@ -4,8 +4,8 @@
    ------------------------------------------------------------
    The site is hosted as static files, so there is no server to
    receive this form. Instead the form:
-     1. validates every control in the browser [R3][R4]
-     2. builds a properly encoded mailto: link [R23]
+     1. validates every control in the browser [3][4]
+     2. builds a properly encoded mailto: link [23]
      3. shows a confirmation panel with an "Open in email app"
         button, so the message still reaches the right inbox
    Change RECIPIENT_EMAIL in one place to send it elsewhere.
@@ -178,7 +178,7 @@
   }
 
   /* ------------------------------------------------------------
-     Build and open the mailto: link [R23]
+     Build and open the mailto: link [23]
      ------------------------------------------------------------ */
   function handleSubmit(event) {
     event.preventDefault();
@@ -212,7 +212,7 @@
     ].join("\n");
 
     /* encodeURIComponent keeps spaces, ampersands and line breaks
-       from breaking the link [R23] */
+       from breaking the link [23] */
     var mailtoUrl = "mailto:" + RECIPIENT_EMAIL +
       "?subject=" + encodeURIComponent(mailSubject) +
       "&body=" + encodeURIComponent(mailBody);

@@ -3,15 +3,15 @@
    WEDE5020 Part 3 | Jovan David (ST10510821)
    ------------------------------------------------------------
    Features:
-     - OpenStreetMap base layer (free, no API key) [R8]
+     - OpenStreetMap base layer (free, no API key) [8]
      - four GreenThumb locations as vector markers
      - a popup with the address and a Google Maps directions link
      - a coordinate readout when the map is clicked
      - zoom in, zoom out and reset buttons
-     - a location list that works without the map [R12]
+     - a location list that works without the map [12]
    OpenLayers is loaded from a CDN in the page <head>. Its global
-   object is called "ol". API details: OpenLayers docs [R6] and the
-   Overlay API page used for the popup [R7].
+   object is called "ol". API details: OpenLayers docs [6] and the
+   Overlay API page used for the popup [7].
    ============================================================ */
 
 (function () {
@@ -156,7 +156,7 @@
       popupDescription.textContent = location.description;
       popupPage.href = location.page;
 
-      /* Google Maps directions link built from the coordinates [R6] */
+      /* Google Maps directions link built from the coordinates [6] */
       popupDirections.href = "https://www.google.com/maps/dir/?api=1&destination=" +
         location.lat + "," + location.lon;
 

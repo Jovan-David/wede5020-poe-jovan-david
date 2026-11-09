@@ -3,10 +3,10 @@
    WEDE5020 Part 3 | Jovan David (ST10510821)
    ------------------------------------------------------------
    What this file does:
-     1. validates every control with JavaScript patterns [R3][R4]
+     1. validates every control with JavaScript patterns [3][4]
      2. shows one clear error message per field plus an error summary
      3. counts the characters typed in the message box
-     4. sends the enquiry with fetch() and async/await [R1][R2]
+     4. sends the enquiry with fetch() and async/await [1][2]
      5. builds a personalised quotation, availability note and
         reply time from the chosen programme
    The endpoint is simulated with a local Promise so the form works
@@ -70,7 +70,7 @@
   });
 
   /* ------------------------------------------------------------
-     Read ?service=... from the address bar [R22]
+     Read ?service=... from the address bar [22]
      ------------------------------------------------------------ */
   function preselectServiceFromUrl() {
     var params = new URLSearchParams(window.location.search);

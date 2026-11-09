@@ -104,7 +104,7 @@ The marked Part 2 feedback sheet had not come back before this submission, so I 
 
 ## f. Part 3 features
 
-### Accordion and modal (index.html, js/main.js) [R10][R11]
+### Accordion and modal (index.html, js/main.js) [10][11]
 
 The FAQ has five questions. Each one is a real `<button>` inside a heading, with `aria-expanded` and `aria-controls` updated on every click. Only one panel is open at a time, and the panel animates open with an animated CSS Grid row, so no height is hard coded. The plus sign turns into a minus while the panel is open.
 
@@ -112,7 +112,7 @@ The garden tour modal opens from the "Book a free garden tour" button. It uses `
 
 Sections also fade in as they scroll into view, using `IntersectionObserver`. If the browser does not support it, the sections are simply visible, and the animation is skipped when the visitor has reduced motion switched on.
 
-### Map (find-us.html, js/map.js) [R6][R7][R8][R20]
+### Map (find-us.html, js/map.js) [6][7][8][20]
 
 OpenLayers 10.6.1 is loaded from jsDelivr with an SRI hash, over an OpenStreetMap base layer. There are four markers: the main garden, the Berea workshop hub, the Chatsworth youth plot and the Umhlanga harvest market.
 
@@ -120,21 +120,21 @@ Clicking a marker opens a popup with the name, address, a short description and 
 
 The map is responsive, going from 480px to 340px tall on small screens, and it calls `updateSize()` when the window is resized. The location list under the map gives the same information to people who cannot use the canvas.
 
-### Gallery and lightbox (gallery.html, js/gallery.js) [R9][R12]
+### Gallery and lightbox (gallery.html, js/gallery.js) [9][12]
 
 Nine photos sit in a grid that goes from three columns to one. Each photo is a `<button>`, so it can be reached with the keyboard. The lightbox shows the large image, a caption and a counter such as "Photo 3 of 9". It has previous, next and close buttons, works with the left and right arrow keys, closes with Escape or a click outside, and can be swiped on a touch screen. Focus stays inside the lightbox and goes back to the photo that opened it.
 
-Every image has alt text, a descriptive file name, `width` and `height` to stop the layout jumping, and `loading="lazy"` below the fold [R18].
+Every image has alt text, a descriptive file name, `width` and `height` to stop the layout jumping, and `loading="lazy"` below the fold [18].
 
-### Programme list (data/services.json, js/services.js) [R1][R2][R24][R25]
+### Programme list (data/services.json, js/services.js) [1][2][24][25]
 
 Ten programmes are stored in the JSON file. Each one has an id, name, category, price, unit, duration, next date, availability, summary and image. The page loads the file with `fetch()` inside an `async` function.
 
 Search filters as the visitor types and looks at the name, category, summary and availability. The category chips are built from the categories in the file. Sorting offers name A to Z, price low to high, price high to low, or next date. There is a loading message, a no-results message that repeats the search back and offers a "Clear filters" button, and an error message with a "Try again" button if the file cannot be loaded.
 
-The count is announced in a live region. Cards are built with `createElement` and `textContent`, never `innerHTML` [R19].
+The count is announced in a live region. Cards are built with `createElement` and `textContent`, never `innerHTML` [19].
 
-### Search engine optimisation [R13] to [R17]
+### Search engine optimisation [13] to [17]
 
 Every page has a title under 60 characters, a meta description of 150 to 160 characters, 6 keywords, one `<h1>`, the viewport tag, `lang="en-ZA"`, a canonical link, Open Graph and Twitter Card tags, and `LocalBusiness` JSON-LD with the name, address, phone number and coordinates. The site root has `robots.txt` and `sitemap.xml`, and every page carries a CSP and uses `rel="noopener noreferrer"` on external links.
 
@@ -144,19 +144,19 @@ The canonical, `og:url` and `og:image` values all use `https://jovan-david.githu
 
 ### Forms
 
-The enquiry form has first name, surname, email, mobile, enquiry type, programme, quantity, preferred date, a message with a character counter, three optional checkboxes and a consent checkbox. Everything is inside fieldsets with labels. Validation uses regular expressions: names `/^[A-Za-z][A-Za-z'\- \s]{1,49}$/`, email `/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/`, South African mobile `/^(\+27|0)[6-8][0-9]{8}$/`, quantity from 1 to 50, a date that is not in the past, and a message of 10 to 500 characters [R3][R4][R5].
+The enquiry form has first name, surname, email, mobile, enquiry type, programme, quantity, preferred date, a message with a character counter, three optional checkboxes and a consent checkbox. Everything is inside fieldsets with labels. Validation uses regular expressions: names `/^[A-Za-z][A-Za-z'\- \s]{1,49}$/`, email `/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/`, South African mobile `/^(\+27|0)[6-8][0-9]{8}$/`, quantity from 1 to 50, a date that is not in the past, and a message of 10 to 500 characters [3][4][5].
 
 Invalid fields get `aria-invalid="true"`, a red border and a text message, and the error summary at the top takes focus. On submit the button is disabled and changes to "Sending your enquiry…".
 
 The submission uses `async` and `await`. There is no server in this portfolio, so `sendEnquiry()` resolves a local Promise after 1.2 seconds to act like a JSON API. The `ENDPOINT` constant at the top of `js/enquiry.js` shows where a real URL would go, and the existing `fetch()` block then runs instead.
 
-The reply repeats the visitor's name, the programme, quantity, requested date, duration, next available start, an estimated total and the reply time, plus a reference number such as `GT-261109-4821`. The form also has a real `action` and `method="post"` for the case where JavaScript is off. Opening `enquiry.html?service=plot-seasonal` preselects that programme using `URLSearchParams` [R22].
+The reply repeats the visitor's name, the programme, quantity, requested date, duration, next available start, an estimated total and the reply time, plus a reference number such as `GT-261109-4821`. The form also has a real `action` and `method="post"` for the case where JavaScript is off. Opening `enquiry.html?service=plot-seasonal` preselects that programme using `URLSearchParams` [22].
 
-The contact form has name, email, optional mobile, subject and message, with the same rules, and the phone is only checked when something is typed. `RECIPIENT_EMAIL` is set once at the top of `js/contact.js`. On submit the subject and body are put together and encoded with `encodeURIComponent` into a `mailto:` link [R23], and a confirmation panel offers an "Open in email app" button and a "Copy email address" fallback.
+The contact form has name, email, optional mobile, subject and message, with the same rules, and the phone is only checked when something is typed. `RECIPIENT_EMAIL` is set once at the top of `js/contact.js`. On submit the subject and body are put together and encoded with `encodeURIComponent` into a `mailto:` link [23], and a confirmation panel offers an "Open in email app" button and a "Copy email address" fallback.
 
 ## g. Accessibility
 
-The site is built for WCAG 2.2 AA [R12].
+The site is built for WCAG 2.2 AA [12].
 
 - Skip link on every page, visible when it has focus.
 - `header`, `nav` with a label, `main` and `footer` landmarks, and `aria-current="page"` on the active menu item.
@@ -225,7 +225,7 @@ Keep the repository clean and align the documented commit list
 
 ## l. Deployment
 
-The site is plain HTML, CSS and JavaScript with no build step, so any static host will do. It is published with GitHub Pages from the `main` branch and the repository root [R27], which serves `404.html` for missing pages.
+The site is plain HTML, CSS and JavaScript with no build step, so any static host will do. It is published with GitHub Pages from the `main` branch and the repository root [27], which serves `404.html` for missing pages.
 
 To publish it again after a change, commit and push to `main`; Pages rebuilds on its own. The site address is then `https://jovan-david.github.io/wede5020-poe-jovan-david/`, which is the address used in the canonical tags, `robots.txt` and `sitemap.xml`. If it moves to another host, that string has to be replaced before the new deploy.
 
@@ -252,42 +252,42 @@ The main things tested by hand were the modal and accordion keys, searching and 
 
 ## References
 
-All sources were accessed on 9 November 2026 unless stated otherwise, in Harvard (IIE) style. The bracketed numbers in the code comments match this list.
+All sources are in Harvard (IIE) style. The bracketed numbers in the code comments match this list.
 
-1. [R1] MDN Web Docs (2026) *Fetch API*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API (Accessed: 9 November 2026).
-2. [R2] MDN Web Docs (2026) *Using the Fetch API*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch (Accessed: 9 November 2026).
-3. [R3] MDN Web Docs (2026) *Client-side form validation*. Available at: https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation (Accessed: 9 November 2026).
-4. [R4] MDN Web Docs (2026) *Regular expressions*. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions (Accessed: 9 November 2026).
-5. [R5] MDN Web Docs (2026) *Constraint validation API*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation (Accessed: 9 November 2026).
-6. [R6] OpenLayers (2026) *OpenLayers documentation*. Available at: https://openlayers.org/doc/ (Accessed: 9 November 2026).
-7. [R7] OpenLayers (2026) *Overlay API reference*. Available at: https://openlayers.org/en/latest/apidoc/module-ol_Overlay-Overlay.html (Accessed: 9 November 2026).
-8. [R8] OpenStreetMap Foundation (2026) *Tile usage policy*. Available at: https://operations.osmfoundation.org/policies/tiles/ (Accessed: 9 November 2026).
-9. [R9] W3Schools (2026) *How TO - Lightbox*. Available at: https://www.w3schools.com/howto/howto_js_lightbox.asp (Accessed: 9 November 2026).
-10. [R10] W3Schools (2026) *How TO - Accordion*. Available at: https://www.w3schools.com/howto/howto_js_accordion.asp (Accessed: 9 November 2026).
-11. [R11] W3Schools (2026) *How TO - CSS Modal*. Available at: https://www.w3schools.com/howto/howto_css_modals.asp (Accessed: 9 November 2026).
-12. [R12] W3C (2023) *Web Content Accessibility Guidelines (WCAG) 2.2*. Available at: https://www.w3.org/TR/WCAG22/ (Accessed: 9 November 2026).
-13. [R13] Google Search Central (2026) *SEO starter guide*. Available at: https://developers.google.com/search/docs/fundamentals/seo-starter-guide (Accessed: 9 November 2026).
-14. [R14] Google Search Central (2026) *Build and submit a sitemap*. Available at: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap (Accessed: 9 November 2026).
-15. [R15] Google Search Central (2026) *Introduction to robots.txt*. Available at: https://developers.google.com/search/docs/crawling-indexing/robots/intro (Accessed: 9 November 2026).
-16. [R16] Google Search Central (2026) *Local business structured data*. Available at: https://developers.google.com/search/docs/appearance/structured-data/local-business (Accessed: 9 November 2026).
-17. [R17] Schema.org (2026) *LocalBusiness*. Available at: https://schema.org/LocalBusiness (Accessed: 9 November 2026).
-18. [R18] web.dev (2026) *Lazy loading images*. Available at: https://web.dev/articles/lazy-loading (Accessed: 9 November 2026).
-19. [R19] MDN Web Docs (2026) *Content-Security-Policy header*. Available at: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy (Accessed: 9 November 2026).
-20. [R20] MDN Web Docs (2026) *Subresource Integrity*. Available at: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity (Accessed: 9 November 2026).
-21. [R21] MDN Web Docs (2026) *Intersection Observer API*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API (Accessed: 9 November 2026).
-22. [R22] MDN Web Docs (2026) *URLSearchParams*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams (Accessed: 9 November 2026).
-23. [R23] MDN Web Docs (2026) *Creating hyperlinks*. Available at: https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks (Accessed: 9 November 2026).
-24. [R24] MDN Web Docs (2026) *JSON*. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON (Accessed: 9 November 2026).
-25. [R25] MDN Web Docs (2026) *Array.prototype.sort()*. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort (Accessed: 9 November 2026).
-26. [R26] Wikimedia Commons (2026) *Free media repository*. Available at: https://commons.wikimedia.org/ (Accessed: 9 November 2026).
-27. [R27] GitHub Docs (2026) *GitHub Pages*. Available at: https://docs.github.com/en/pages (Accessed: 9 November 2026).
-28. [R28] Netlify (2026) *Netlify documentation*. Available at: https://docs.netlify.com/ (Accessed: 9 November 2026).
+1. [1] MDN Web Docs (2026) *Fetch API*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+2. [2] MDN Web Docs (2026) *Using the Fetch API*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+3. [3] MDN Web Docs (2026) *Client-side form validation*. Available at: https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation
+4. [4] MDN Web Docs (2026) *Regular expressions*. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions
+5. [5] MDN Web Docs (2026) *Constraint validation API*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation
+6. [6] OpenLayers (2026) *OpenLayers documentation*. Available at: https://openlayers.org/doc/
+7. [7] OpenLayers (2026) *Overlay API reference*. Available at: https://openlayers.org/en/latest/apidoc/module-ol_Overlay-Overlay.html
+8. [8] OpenStreetMap Foundation (2026) *Tile usage policy*. Available at: https://operations.osmfoundation.org/policies/tiles/
+9. [9] W3Schools (2026) *How TO - Lightbox*. Available at: https://www.w3schools.com/howto/howto_js_lightbox.asp
+10. [10] W3Schools (2026) *How TO - Accordion*. Available at: https://www.w3schools.com/howto/howto_js_accordion.asp
+11. [11] W3Schools (2026) *How TO - CSS Modal*. Available at: https://www.w3schools.com/howto/howto_css_modals.asp
+12. [12] W3C (2023) *Web Content Accessibility Guidelines (WCAG) 2.2*. Available at: https://www.w3.org/TR/WCAG22/
+13. [13] Google Search Central (2026) *SEO starter guide*. Available at: https://developers.google.com/search/docs/fundamentals/seo-starter-guide
+14. [14] Google Search Central (2026) *Build and submit a sitemap*. Available at: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
+15. [15] Google Search Central (2026) *Introduction to robots.txt*. Available at: https://developers.google.com/search/docs/crawling-indexing/robots/intro
+16. [16] Google Search Central (2026) *Local business structured data*. Available at: https://developers.google.com/search/docs/appearance/structured-data/local-business
+17. [17] Schema.org (2026) *LocalBusiness*. Available at: https://schema.org/LocalBusiness
+18. [18] web.dev (2026) *Lazy loading images*. Available at: https://web.dev/articles/lazy-loading
+19. [19] MDN Web Docs (2026) *Content-Security-Policy header*. Available at: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+20. [20] MDN Web Docs (2026) *Subresource Integrity*. Available at: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
+21. [21] MDN Web Docs (2026) *Intersection Observer API*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+22. [22] MDN Web Docs (2026) *URLSearchParams*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+23. [23] MDN Web Docs (2026) *Creating hyperlinks*. Available at: https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks
+24. [24] MDN Web Docs (2026) *JSON*. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
+25. [25] MDN Web Docs (2026) *Array.prototype.sort()*. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+26. [26] Wikimedia Commons (2026) *Free media repository*. Available at: https://commons.wikimedia.org/
+27. [27] GitHub Docs (2026) *GitHub Pages*. Available at: https://docs.github.com/en/pages
+28. [28] Netlify (2026) *Netlify documentation*. Available at: https://docs.netlify.com/
 
 Also acknowledged: the lecturer's MapBox and OpenLayers sample used in class, which the mapping pattern started from.
 
 ## Image credits
 
-The photographs are used under a Creative Commons licence or are in the public domain. They were resized and compressed for the web and were not otherwise edited. Sources are Wikimedia Commons [R26].
+The photographs are used under a Creative Commons licence or are in the public domain. They were resized and compressed for the web and were not otherwise edited. Sources are Wikimedia Commons [26].
 
 | File | Subject | Author | Licence |
 |---|---|---|---|

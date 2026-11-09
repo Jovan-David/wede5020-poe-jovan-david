@@ -56,7 +56,7 @@ body {
   border: 0;
 }
 
-/* Keyboard users get a visible "skip to content" link - WCAG 2.2 [R12] */
+/* Keyboard users get a visible "skip to content" link - WCAG 2.2 [12] */
 .skip-link {
   position: absolute;
   left: 8px;
@@ -75,7 +75,7 @@ body {
   top: 0;
 }
 
-/* A single, consistent focus ring on every interactive element [R12] */
+/* A single, consistent focus ring on every interactive element [12] */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -614,7 +614,7 @@ section {
    PART 3 STARTS HERE
    ============================================================ */
 
-/* ---------- 12. Scroll reveal animation (js/main.js) [R21] ---------- */
+/* ---------- 12. Scroll reveal animation (js/main.js) [21] ---------- */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -626,7 +626,7 @@ section {
   transform: none;
 }
 
-/* ---------- 13. Interactive accordion (js/main.js) [R10] ---------- */
+/* ---------- 13. Interactive accordion (js/main.js) [10] ---------- */
 .accordion {
   display: flex;
   flex-direction: column;
@@ -729,7 +729,7 @@ section {
   grid-template-rows: 1fr;
 }
 
-/* ---------- 14. Modal dialog (js/main.js) [R11] ---------- */
+/* ---------- 14. Modal dialog (js/main.js) [11] ---------- */
 .modal {
   position: fixed;
   inset: 0;
@@ -807,7 +807,7 @@ body.no-scroll {
   overflow: hidden;
 }
 
-/* ---------- 15. Gallery grid + lightbox (js/gallery.js) [R9] ---------- */
+/* ---------- 15. Gallery grid + lightbox (js/gallery.js) [9] ---------- */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -954,7 +954,7 @@ body.no-scroll {
   font-size: 1.4rem;
 }
 
-/* ---------- 16. Dynamic services list (js/services.js) [R1] ---------- */
+/* ---------- 16. Dynamic services list (js/services.js) [1] ---------- */
 .toolbar {
   background-color: var(--white);
   border: 1px solid var(--border);
@@ -1115,7 +1115,7 @@ body.no-scroll {
   50% { opacity: 1; transform: scale(1.15); }
 }
 
-/* ---------- 17. Map page (js/map.js) [R6] ---------- */
+/* ---------- 17. Map page (js/map.js) [6] ---------- */
 .map-shell {
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -1681,7 +1681,7 @@ body.no-scroll {
   }
 }
 
-/* ---------- 21. Reduced motion [R12] ---------- */
+/* ---------- 21. Reduced motion [12] ---------- */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

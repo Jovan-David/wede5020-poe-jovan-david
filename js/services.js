@@ -3,10 +3,10 @@
    WEDE5020 Part 3 | Jovan David (ST10510821)
    ------------------------------------------------------------
    The programme cards on services.html are not typed into the HTML.
-   They are loaded from data/services.json with fetch() [R1][R2][R24]
+   They are loaded from data/services.json with fetch() [1][2][24]
    and then filtered, searched and sorted in the browser.
    Everything is written with textContent (never innerHTML) so any
-   text inside the JSON file can never run as code [R19].
+   text inside the JSON file can never run as code [19].
    ============================================================ */
 
 (function () {
