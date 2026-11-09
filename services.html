@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https://*.tile.openstreetmap.org https://tile.openstreetmap.org; connect-src 'self' https://*.tile.openstreetmap.org; font-src 'self'; form-action 'self' https://formsubmit.co">
+
+  <title>Programs and Services | GreenThumb Garden Durban</title>
+  <meta name="description" content="Search GreenThumb gardening workshops, seasonal plots, school visits, holiday clubs and volunteer days in Durban. Compare prices, dates and availability.">
+  <meta name="keywords" content="gardening workshops Durban, community garden plots, school garden visit, holiday programme Durban, volunteer gardening, composting course Durban">
+  <meta name="author" content="Jovan David">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://greenthumbgarden.netlify.app/services.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GreenThumb Community Garden">
+  <meta property="og:title" content="Programs and Services | GreenThumb Garden Durban">
+  <meta property="og:description" content="Workshops, plots, school visits and volunteer days. Search and filter every GreenThumb programme by category, price and date.">
+  <meta property="og:url" content="https://greenthumbgarden.netlify.app/services.html">
+  <meta property="og:image" content="https://greenthumbgarden.netlify.app/images/container-gardening-workshop.jpg">
+  <meta property="og:image:alt" content="Volunteer teaching a container gardening workshop">
+  <meta property="og:locale" content="en_ZA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Programs and Services | GreenThumb Garden Durban">
+  <meta name="twitter:description" content="Workshops, plots, school visits and volunteer days at GreenThumb Community Garden.">
+  <meta name="twitter:image" content="https://greenthumbgarden.netlify.app/images/container-gardening-workshop.jpg">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/services.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://greenthumbgarden.netlify.app/#garden",
+    "name": "GreenThumb Community Garden",
+    "url": "https://greenthumbgarden.netlify.app/",
+    "image": "https://greenthumbgarden.netlify.app/images/community-vegetable-garden-rows.jpg",
+    "telephone": "+27315630142",
+    "email": "info@greenthumbgarden.org",
+    "priceRange": "R0 - R5000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "45 Adelaide Tambo Drive",
+      "addressLocality": "Durban North",
+      "addressRegion": "KwaZulu-Natal",
+      "postalCode": "4051",
+      "addressCountry": "ZA"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -29.7860, "longitude": 31.0350 },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="header">
+    <div class="header-container">
+      <a class="logo" href="index.html" aria-label="GreenThumb Community Garden home page">
+        <span class="logo-mark" aria-hidden="true">GT</span>
+        <span class="logo-text">GreenThumb<small>Community Garden</small></span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span aria-hidden="true">&#9776;</span> Menu
+      </button>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="primary-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html" class="active" aria-current="page">Programs &amp; Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="find-us.html">Find Us</a></li>
+          <li><a href="enquiry.html">Get Involved</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li aria-current="page">Programs &amp; Services</li>
+    </ol>
+  </nav>
+
+  <main id="main">
+    <section class="page-header">
+      <h1>Programs and services</h1>
+      <p>Ten ways to get growing with us, from a free Saturday shift to a full workshop programme. Use the search and filters below to find the right one.</p>
+    </section>
+
+    <section class="band-white">
+      <div class="container">
+        <h2 class="section-title">Find a programme</h2>
+        <p class="section-intro">The list below is loaded from our data file, so prices and dates are always the latest ones on the site.</p>
+
+        <!-- SEARCH / FILTER / SORT TOOLBAR [R1] -->
+        <div class="toolbar">
+          <div class="toolbar-field">
+            <label for="service-search">Search programmes</label>
+            <input type="search" id="service-search" name="service-search" placeholder="Try &quot;workshop&quot;, &quot;school&quot; or &quot;plot&quot;" autocomplete="off">
+          </div>
+
+          <div class="toolbar-field">
+            <label for="service-sort">Sort by</label>
+            <select id="service-sort" name="service-sort">
+              <option value="name-asc">Name (A to Z)</option>
+              <option value="price-asc">Price (low to high)</option>
+              <option value="price-desc">Price (high to low)</option>
+              <option value="date-asc">Next date (soonest first)</option>
+            </select>
+          </div>
+
+          <div class="filter-chips" id="category-chips" role="group" aria-label="Filter by programme category"></div>
+        </div>
+
+        <p class="result-summary" id="result-summary" role="status" aria-live="polite">Loading programmes...</p>
+        <p class="hint" id="prices-updated"></p>
+
+        <!-- The cards are created by js/services.js -->
+        <ul class="service-grid" id="service-grid" aria-busy="true">
+          <li class="loading-state"><span class="spinner" aria-hidden="true"></span>Loading programmes...</li>
+        </ul>
+
+        <noscript>
+          <div class="notice">
+            <p><strong>JavaScript is switched off in your browser.</strong> The searchable programme list needs JavaScript to load our data file. Please call <a href="tel:+27315630142">+27 31 563 0142</a> or <a href="contact.html">send us a message</a> and we will email you the current price list.</p>
+          </div>
+        </noscript>
+      </div>
+    </section>
+
+    <section>
+      <div class="container-narrow">
+        <h2 class="section-title">How booking works</h2>
+        <div class="programs-grid">
+          <article class="program-card">
+            <div class="program-content">
+              <span class="tag">Step 1</span>
+              <h3>Choose a programme</h3>
+              <p>Use the filters above to compare prices, dates and availability. Every card links straight to the enquiry form with that programme already selected.</p>
+            </div>
+          </article>
+          <article class="program-card">
+            <div class="program-content">
+              <span class="tag">Step 2</span>
+              <h3>Send an enquiry</h3>
+              <p>Tell us how many people are coming and which date suits you. You will see an estimated cost and the next available start before you send anything.</p>
+            </div>
+          </article>
+          <article class="program-card">
+            <div class="program-content">
+              <span class="tag">Step 3</span>
+              <h3>We confirm within a day</h3>
+              <p>A volunteer coordinator replies within one working day with a confirmed date, a payment reference and everything you need to bring.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="notice mt-2">
+          <p><strong>Prices and dates:</strong> all amounts are in South African rand and include VAT where applicable. Workshop places are limited to 15 people so that everybody gets a turn with the tools.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <section class="footer-section">
+        <h2>GreenThumb Community Garden</h2>
+        <p>Growing fresh food, practical skills and stronger neighbourhoods in Durban since 2018.</p>
+      </section>
+
+      <section class="footer-section">
+        <h2>Visit us</h2>
+        <address>
+          45 Adelaide Tambo Drive<br>
+          Durban North, Durban, 4051<br>
+          <a href="tel:+27315630142">+27 31 563 0142</a><br>
+          <a href="mailto:info@greenthumbgarden.org">info@greenthumbgarden.org</a>
+        </address>
+      </section>
+
+      <section class="footer-section">
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="find-us.html">Find Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-section">
+        <h2>Follow and visit</h2>
+        <p>Garden hours: Tuesday to Saturday, 08:00 to 16:00.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/greenthumbcommunitygarden" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.instagram.com/greenthumbcommunitygarden" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year">2026</span> GreenThumb Community Garden. Website by Jovan David (ST10510821).</p>
+    </div>
+  </footer>
+</body>
+</html>
