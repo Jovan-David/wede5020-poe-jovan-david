@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https://*.tile.openstreetmap.org https://tile.openstreetmap.org; connect-src 'self' https://*.tile.openstreetmap.org; font-src 'self'; form-action 'self' https://formsubmit.co">
+
+  <title>Get Involved Enquiry | GreenThumb Garden</title>
+  <meta name="description" content="Enquire about a GreenThumb plot, workshop, school visit or volunteer day in Durban. Get an instant estimate, availability and a reply within one working day.">
+  <meta name="keywords" content="garden plot enquiry Durban, book gardening workshop, school garden visit booking, volunteer sign up Durban, community garden membership, GreenThumb enquiry">
+  <meta name="author" content="Jovan David">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://greenthumbgarden.netlify.app/enquiry.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GreenThumb Community Garden">
+  <meta property="og:title" content="Get Involved Enquiry | GreenThumb Garden">
+  <meta property="og:description" content="Tell us which programme interests you and see an instant cost estimate before you send your enquiry.">
+  <meta property="og:url" content="https://greenthumbgarden.netlify.app/enquiry.html">
+  <meta property="og:image" content="https://greenthumbgarden.netlify.app/images/volunteer-planting-garden-bed.jpg">
+  <meta property="og:image:alt" content="Volunteer planting seedlings in a community garden bed">
+  <meta property="og:locale" content="en_ZA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Get Involved Enquiry | GreenThumb Garden">
+  <meta name="twitter:description" content="Book a plot, workshop, school visit or volunteer day at GreenThumb Community Garden.">
+  <meta name="twitter:image" content="https://greenthumbgarden.netlify.app/images/volunteer-planting-garden-bed.jpg">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/enquiry.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://greenthumbgarden.netlify.app/#garden",
+    "name": "GreenThumb Community Garden",
+    "url": "https://greenthumbgarden.netlify.app/",
+    "image": "https://greenthumbgarden.netlify.app/images/community-vegetable-garden-rows.jpg",
+    "telephone": "+27315630142",
+    "email": "info@greenthumbgarden.org",
+    "priceRange": "R0 - R5000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "45 Adelaide Tambo Drive",
+      "addressLocality": "Durban North",
+      "addressRegion": "KwaZulu-Natal",
+      "postalCode": "4051",
+      "addressCountry": "ZA"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -29.7860, "longitude": 31.0350 },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="header">
+    <div class="header-container">
+      <a class="logo" href="index.html" aria-label="GreenThumb Community Garden home page">
+        <span class="logo-mark" aria-hidden="true">GT</span>
+        <span class="logo-text">GreenThumb<small>Community Garden</small></span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span aria-hidden="true">&#9776;</span> Menu
+      </button>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="primary-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Programs &amp; Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="find-us.html">Find Us</a></li>
+          <li><a href="enquiry.html" class="active" aria-current="page">Get Involved</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li aria-current="page">Get Involved</li>
+    </ol>
+  </nav>
+
+  <main id="main">
+    <section class="page-header">
+      <h1>Get involved</h1>
+      <p>Tell us what you would like to do in the garden. You will see an estimated cost and our next available date before you send anything.</p>
+    </section>
+
+    <section class="band-white">
+      <div class="container-narrow">
+        <form class="form-card" id="enquiry-form" action="https://formsubmit.co/info@greenthumbgarden.org" method="post" novalidate>
+          <div class="form-intro">
+            <h2>Programme enquiry form</h2>
+            <p>Fields marked <span class="required-mark">*</span> are required. We reply within one working day.</p>
+          </div>
+
+          <!-- Error summary, filled in by js/enquiry.js -->
+          <div class="form-status" id="form-status" role="alert" aria-live="assertive"></div>
+
+          <fieldset class="fieldset">
+            <legend>Your details</legend>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="first-name">First name <span class="required-mark">*</span></label>
+                <input type="text" id="first-name" name="first-name" autocomplete="given-name" data-label="First name" aria-describedby="first-name-error">
+                <span class="field-error" id="first-name-error" role="alert"></span>
+              </div>
+
+              <div class="form-field">
+                <label for="last-name">Surname <span class="required-mark">*</span></label>
+                <input type="text" id="last-name" name="last-name" autocomplete="family-name" data-label="Surname" aria-describedby="last-name-error">
+                <span class="field-error" id="last-name-error" role="alert"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="email">Email address <span class="required-mark">*</span></label>
+                <input type="email" id="email" name="email" autocomplete="email" placeholder="thandi@example.co.za" data-label="Email address" aria-describedby="email-error">
+                <span class="field-error" id="email-error" role="alert"></span>
+              </div>
+
+              <div class="form-field">
+                <label for="phone">Mobile number <span class="required-mark">*</span></label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="082 123 4567" data-label="Mobile number" aria-describedby="phone-error phone-hint">
+                <span class="hint" id="phone-hint">South African mobile number, for example 082 123 4567.</span>
+                <span class="field-error" id="phone-error" role="alert"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend>Who is the enquiry for? <span class="required-mark">*</span></legend>
+            <div class="choice-group" role="radiogroup" aria-describedby="enquiry-type-error">
+              <label class="choice"><input type="radio" name="enquiry-type" value="Individual"> An individual or household</label>
+              <label class="choice"><input type="radio" name="enquiry-type" value="School"> A school or crèche</label>
+              <label class="choice"><input type="radio" name="enquiry-type" value="Community group"> A community group or church</label>
+              <label class="choice"><input type="radio" name="enquiry-type" value="Business"> A business or corporate team</label>
+            </div>
+            <span class="field-error" id="enquiry-type-error" role="alert"></span>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend>What would you like to book?</legend>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="service">Programme <span class="required-mark">*</span></label>
+                <select id="service" name="service" data-label="Programme" aria-describedby="service-error price-preview">
+                  <option value="">Please choose a programme</option>
+                  <option value="workshop-beginner-vegetables" data-price="350" data-unit="per person" data-duration="3 hours" data-availability="Saturday mornings" data-reply="one working day">Beginner Vegetable Gardening Workshop - R350 per person</option>
+                  <option value="workshop-composting" data-price="280" data-unit="per person" data-duration="2 hours" data-availability="first Saturday of the month" data-reply="one working day">Composting and Soil Health Workshop - R280 per person</option>
+                  <option value="workshop-water-wise" data-price="320" data-unit="per person" data-duration="2.5 hours" data-availability="monthly sessions" data-reply="one working day">Water-Wise Food Gardening Workshop - R320 per person</option>
+                  <option value="plot-seasonal" data-price="650" data-unit="per plot" data-duration="6 months" data-availability="12 plots open each season" data-reply="two working days">Seasonal Community Plot - R650 per season</option>
+                  <option value="plot-raised-bed" data-price="950" data-unit="per plot" data-duration="6 months" data-availability="4 accessible raised beds" data-reply="two working days">Raised Bed Plot with Tool Locker - R950 per season</option>
+                  <option value="youth-school-visit" data-price="45" data-unit="per learner" data-duration="90 minutes" data-availability="Tuesday to Thursday visits" data-reply="two working days">School Garden Visit - R45 per learner</option>
+                  <option value="youth-holiday-club" data-price="550" data-unit="per child" data-duration="5 mornings" data-availability="December and June holidays" data-reply="two working days">Holiday Garden Club - R550 per child</option>
+                  <option value="volunteer-team-day" data-price="1500" data-unit="per group of 10" data-duration="1 day" data-availability="weekdays by arrangement" data-reply="two working days">Corporate Volunteer Team Day - R1 500 per group</option>
+                  <option value="volunteer-weekly" data-price="0" data-unit="free" data-duration="3 hours" data-availability="every Saturday, 08:00" data-reply="one working day">Weekly Garden Volunteer Shift - free</option>
+                  <option value="sponsor-harvest-market" data-price="5000" data-unit="per event" data-duration="one market day" data-availability="four slots a year" data-reply="three working days">Harvest Market Sponsorship - R5 000 per event</option>
+                </select>
+                <span class="field-error" id="service-error" role="alert"></span>
+              </div>
+
+              <div class="form-field">
+                <label for="quantity">How many people or plots? <span class="required-mark">*</span></label>
+                <input type="number" id="quantity" name="quantity" min="1" max="50" step="1" value="1" data-label="Quantity" aria-describedby="quantity-error">
+                <span class="field-error" id="quantity-error" role="alert"></span>
+              </div>
+            </div>
+
+            <p class="hint" id="price-preview" role="status" aria-live="polite"></p>
+
+            <div class="form-field">
+              <label for="preferred-date">Preferred date <span class="required-mark">*</span></label>
+              <input type="date" id="preferred-date" name="preferred-date" data-label="Preferred date" aria-describedby="preferred-date-error">
+              <span class="field-error" id="preferred-date-error" role="alert"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Tell us about your group <span class="required-mark">*</span></label>
+              <textarea id="message" name="message" maxlength="500" data-label="Message" aria-describedby="message-error message-counter"></textarea>
+              <span class="char-counter" id="message-counter">0 / 500 characters</span>
+              <span class="field-error" id="message-error" role="alert"></span>
+            </div>
+
+            <div class="form-field">
+              <span class="required-label">Anything else we should know?</span>
+              <div class="choice-group">
+                <label class="choice"><input type="checkbox" name="addons" value="Wheelchair access needed"> We need wheelchair access</label>
+                <label class="choice"><input type="checkbox" name="addons" value="Invoice required"> Please send a tax invoice</label>
+                <label class="choice"><input type="checkbox" name="addons" value="Add me to the newsletter"> Add me to the monthly garden newsletter</label>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label class="choice">
+                <input type="checkbox" id="consent" name="consent" data-label="Consent" aria-describedby="consent-error">
+                I agree that GreenThumb may store these details to reply to my enquiry. <span class="required-mark">*</span>
+              </label>
+              <span class="field-error" id="consent-error" role="alert"></span>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit" id="enquiry-submit">Send enquiry</button>
+            <span class="hint">No payment is taken now. We confirm availability first.</span>
+          </div>
+
+          <!-- Personalised quotation + confirmation, filled in by js/enquiry.js -->
+          <div class="quote-panel" id="quote-panel" hidden>
+            <h3>Your enquiry has been sent</h3>
+            <dl class="quote-list">
+              <dt>Name</dt><dd id="quote-name"></dd>
+              <dt>Programme</dt><dd id="quote-programme"></dd>
+              <dt>Quantity</dt><dd id="quote-quantity"></dd>
+              <dt>Requested date</dt><dd id="quote-date"></dd>
+              <dt>Availability</dt><dd id="quote-availability"></dd>
+              <dt>Duration</dt><dd id="quote-duration"></dd>
+              <dt>Reference</dt><dd id="quote-reference"></dd>
+            </dl>
+            <p class="quote-total">Estimated total: <span id="quote-total"></span></p>
+            <p id="quote-reply"></p>
+          </div>
+        </form>
+
+        <div class="notice mt-2">
+          <p><strong>What happens next:</strong> a volunteer coordinator checks the calendar, confirms your date by email and sends a payment reference. If your preferred date is full we will offer the next two available dates.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <section class="footer-section">
+        <h2>GreenThumb Community Garden</h2>
+        <p>Growing fresh food, practical skills and stronger neighbourhoods in Durban since 2018.</p>
+      </section>
+
+      <section class="footer-section">
+        <h2>Visit us</h2>
+        <address>
+          45 Adelaide Tambo Drive<br>
+          Durban North, Durban, 4051<br>
+          <a href="tel:+27315630142">+27 31 563 0142</a><br>
+          <a href="mailto:info@greenthumbgarden.org">info@greenthumbgarden.org</a>
+        </address>
+      </section>
+
+      <section class="footer-section">
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Programs &amp; Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="find-us.html">Find Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-section">
+        <h2>Follow and visit</h2>
+        <p>Garden hours: Tuesday to Saturday, 08:00 to 16:00.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/greenthumbcommunitygarden" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.instagram.com/greenthumbcommunitygarden" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year">2026</span> GreenThumb Community Garden. Website by Jovan David (ST10510821).</p>
+    </div>
+  </footer>
+</body>
+</html>
