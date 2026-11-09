@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https://*.tile.openstreetmap.org https://tile.openstreetmap.org; connect-src 'self' https://*.tile.openstreetmap.org; font-src 'self'; form-action 'self' https://formsubmit.co">
+
+  <title>Find Us | GreenThumb Community Garden Map</title>
+  <meta name="description" content="Interactive map of GreenThumb Community Garden in Durban North, plus our Berea workshop hub, the Chatsworth youth plot and the Umhlanga market stall in Durban.">
+  <meta name="keywords" content="GreenThumb directions, community garden Durban North map, Adelaide Tambo Drive garden, Berea workshop venue, Chatsworth garden, Umhlanga market">
+  <meta name="author" content="Jovan David">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://greenthumbgarden.netlify.app/find-us.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GreenThumb Community Garden">
+  <meta property="og:title" content="Find Us | GreenThumb Community Garden Map">
+  <meta property="og:description" content="Directions and an interactive map for all four GreenThumb sites in and around Durban.">
+  <meta property="og:url" content="https://greenthumbgarden.netlify.app/find-us.html">
+  <meta property="og:image" content="https://greenthumbgarden.netlify.app/images/community-vegetable-garden-rows.jpg">
+  <meta property="og:image:alt" content="Rows of leafy green vegetables in raised community garden beds">
+  <meta property="og:locale" content="en_ZA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Find Us | GreenThumb Community Garden Map">
+  <meta name="twitter:description" content="Directions and an interactive map for all four GreenThumb sites in and around Durban.">
+  <meta name="twitter:image" content="https://greenthumbgarden.netlify.app/images/community-vegetable-garden-rows.jpg">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- OpenLayers stylesheet + library from the jsDelivr CDN [R6] -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@10.6.1/ol.css" integrity="sha384-Jpg1uvTciFJuHq+90Ly0/2SKRT9yS5OhbIN5FuFoFWji9fc44ok8xxO88CJi8Z5W" crossorigin="anonymous">
+  <script src="js/main.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/ol@10.6.1/dist/ol.js" integrity="sha384-R02sHnzL8yl/uvLZvMsfgBOMBIOOHLpuLNo4dLuWQWFun1sxEWJej+SPwiGxaeGd" crossorigin="anonymous" defer></script>
+  <script src="js/map.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://greenthumbgarden.netlify.app/#garden",
+    "name": "GreenThumb Community Garden",
+    "url": "https://greenthumbgarden.netlify.app/",
+    "image": "https://greenthumbgarden.netlify.app/images/community-vegetable-garden-rows.jpg",
+    "telephone": "+27315630142",
+    "email": "info@greenthumbgarden.org",
+    "priceRange": "R0 - R5000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "45 Adelaide Tambo Drive",
+      "addressLocality": "Durban North",
+      "addressRegion": "KwaZulu-Natal",
+      "postalCode": "4051",
+      "addressCountry": "ZA"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -29.7860, "longitude": 31.0350 },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="header">
+    <div class="header-container">
+      <a class="logo" href="index.html" aria-label="GreenThumb Community Garden home page">
+        <span class="logo-mark" aria-hidden="true">GT</span>
+        <span class="logo-text">GreenThumb<small>Community Garden</small></span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span aria-hidden="true">&#9776;</span> Menu
+      </button>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="primary-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Programs &amp; Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="find-us.html" class="active" aria-current="page">Find Us</a></li>
+          <li><a href="enquiry.html">Get Involved</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li aria-current="page">Find Us</li>
+    </ol>
+  </nav>
+
+  <main id="main">
+    <section class="page-header">
+      <h1>Find us on the map</h1>
+      <p>We garden at four sites in and around Durban. Select a marker for the address and a direct Google Maps directions link.</p>
+    </section>
+
+    <section class="band-white">
+      <div class="container">
+        <h2 class="section-title">Our four sites</h2>
+        <p class="section-intro">Use the buttons above the map to zoom, or click anywhere on the map to read the coordinates of that point.</p>
+
+        <div class="map-shell">
+          <div class="map-toolbar">
+            <button class="btn btn-outline btn-small" type="button" data-map-action="zoom-in" aria-label="Zoom the map in">Zoom in</button>
+            <button class="btn btn-outline btn-small" type="button" data-map-action="zoom-out" aria-label="Zoom the map out">Zoom out</button>
+            <button class="btn btn-outline btn-small" type="button" data-map-action="reset" aria-label="Reset the map to show all four sites">Reset view</button>
+            <span class="map-hint">Click a green marker for details, or use the list underneath.</span>
+          </div>
+
+          <div id="map" role="region" aria-label="Interactive map showing the GreenThumb garden, workshop hub, youth plot and harvest market"></div>
+
+          <span class="map-coords" id="map-coordinates" role="status" aria-live="polite">Click anywhere on the map to see the latitude and longitude of that point.</span>
+
+          <!-- Popup that OpenLayers positions over the selected marker [R7] -->
+          <div id="map-popup" class="ol-popup">
+            <button class="ol-popup-close" type="button" id="popup-close" aria-label="Close the location details">&times;</button>
+            <h3 id="popup-title"></h3>
+            <p id="popup-address"></p>
+            <p id="popup-description"></p>
+            <div class="popup-actions">
+              <a class="btn btn-primary" id="popup-directions" href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">Get directions</a>
+              <a class="btn btn-outline" id="popup-page" href="index.html">More about this site</a>
+            </div>
+          </div>
+        </div>
+
+        <p class="hint mt-2">The map uses OpenStreetMap data, so no account or API key is needed. Map tiles are &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>.</p>
+
+        <h2 class="section-title mt-2">Site addresses</h2>
+        <ul class="locations-list">
+          <li>
+            <h3>Main garden and office</h3>
+            <p>45 Adelaide Tambo Drive, Durban North, Durban, 4051<br>Open Tuesday to Saturday, 08:00 to 16:00.</p>
+            <button class="btn btn-outline" type="button" data-location-id="main-garden">Show on map</button>
+          </li>
+          <li>
+            <h3>Workshop and training hub</h3>
+            <p>Berea Community Hall, 121 Stephen Dlamini Road, Berea, Durban<br>Workshops on Saturdays and selected weekdays.</p>
+            <button class="btn btn-outline" type="button" data-location-id="workshop-hub">Show on map</button>
+          </li>
+          <li>
+            <h3>Youth education plot</h3>
+            <p>Chatsworth Environmental Centre, 1 Havenside Drive, Chatsworth<br>School visits Tuesday to Thursday, by booking.</p>
+            <button class="btn btn-outline" type="button" data-location-id="youth-plot">Show on map</button>
+          </li>
+          <li>
+            <h3>Saturday harvest market</h3>
+            <p>Chartwell Drive, Umhlanga Rocks, Durban<br>First Saturday of the month, 07:00 to 12:00.</p>
+            <button class="btn btn-outline" type="button" data-location-id="harvest-market">Show on map</button>
+          </li>
+        </ul>
+
+        <div class="notice mt-2">
+          <p><strong>Getting here:</strong> the M4 and M12 both pass within walking distance of the main garden, and there is a taxi rank 400 metres away on Adelaide Tambo Drive. Parking is available behind the tool shed, including two bays for visitors with a disability permit. The garden path is level and wheelchair friendly.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <section class="footer-section">
+        <h2>GreenThumb Community Garden</h2>
+        <p>Growing fresh food, practical skills and stronger neighbourhoods in Durban since 2018.</p>
+      </section>
+
+      <section class="footer-section">
+        <h2>Visit us</h2>
+        <address>
+          45 Adelaide Tambo Drive<br>
+          Durban North, Durban, 4051<br>
+          <a href="tel:+27315630142">+27 31 563 0142</a><br>
+          <a href="mailto:info@greenthumbgarden.org">info@greenthumbgarden.org</a>
+        </address>
+      </section>
+
+      <section class="footer-section">
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Programs &amp; Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-section">
+        <h2>Follow and visit</h2>
+        <p>Garden hours: Tuesday to Saturday, 08:00 to 16:00.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/greenthumbcommunitygarden" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.instagram.com/greenthumbcommunitygarden" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year">2026</span> GreenThumb Community Garden. Website by Jovan David (ST10510821).</p>
+    </div>
+  </footer>
+</body>
+</html>
